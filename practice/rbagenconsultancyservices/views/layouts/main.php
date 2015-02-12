@@ -48,8 +48,6 @@ use yii\helpers\Html;
             </div>	
  <!---End-header---->
      <?= $content ?>
-     
-     
 <?php $this->endBody() ?>
 </body>
 </html>

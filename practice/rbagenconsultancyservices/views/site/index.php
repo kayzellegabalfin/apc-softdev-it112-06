@@ -40,8 +40,21 @@ $this->title = 'RBA General Consultancy and Services | Client Servicing System';
 
 	<div class="border"></div>
 
-	<div class="content-top-grids">
-		<div class="wrap">
+	<div class="bottom-grids">
+		<div class="wrap">				
+			<div class="col span_1_of_3">
+      			<img src="images/feature1.PNG" alt="" />
+			</div>	
+			
+			<div class="col span_2_of_3">
+				<div class="company_address">
+				    <h3>Apply for your Visa now with ease</h3>
+					<p>Bacon ipsum dolor sit amet tenderloin salami pig, fatback pastrami ham hock shoulder bacon t-bone pork meatball. 
+						Pancetta ham turkey shankle turducken jerky. Jowl spare ribs short ribs andouille tongue shoulder. Rump shoulder 
+						cow turducken, salami filet mignon ham sausage pancetta pork prosciutto brisket short ribs boudin. Shoulder short 
+						ribs andouille swine venison ham hock.</p>
+				</div>
+  			</div>	
 			<div class="clear"> </div>
 		</div>
 	</div>
@@ -50,6 +63,19 @@ $this->title = 'RBA General Consultancy and Services | Client Servicing System';
 			
 	<div class="content-banner">
 		<div class="wrap">
+			<div class="col span_2_of_3">
+				<div class="company_address">
+					<h3>Manage your account and monitor every transactions you made</h3>
+					<p>Candy bonbon pastry jujubes lollipop wafer biscuit biscuit. Topping brownie sesame snaps sweet roll pie. Croissant 
+						danish biscuit soufflé caramels jujubes jelly. Dragée danish caramels lemon drops dragée. Gummi bears cupcake 
+						biscuit tiramisu sugar plum pastry. Dragée gummies applicake pudding liquorice. Donut jujubes oat cake jelly-o. 
+						Dessert bear claw chocolate cake gummies lollipop sugar plum ice cream gummies cheesecake.</p>
+				</div>
+			</div>	
+			
+			<div class="col span_1_of_3">
+					<img src="images/feature2.PNG" alt="" />
+  			</div>	
 			<div class="clear"> </div>
 		</div>
 	</div>
@@ -58,6 +84,19 @@ $this->title = 'RBA General Consultancy and Services | Client Servicing System';
 	
 	<div class="bottom-grids">
 		<div class="wrap">
+			<div class="col span_1_of_3">
+      			<img src="images/feature3.PNG" alt="" />
+			</div>	
+			
+			<div class="col span_2_of_3">
+				<div class="company_address">
+				    <h3>Know the status of your transactions fast and seamlessly</h3>
+					<p>In omni memoria patriae religionis sunt diri undead historiarum. Golums, zombies et fascinati. Maleficia! Vel a 
+						modern perhsaps morbi. A terrenti contagium. Forsitan illud Apocalypsi, vel malum poenae horrifying fecimus. 
+						Indeflexus monstra per plateas currere. Fit de nostra carne undead. Poenitentiam agite pœnitentiam! Vivens 
+						mortua sunt apud nos.</p>
+				</div>
+  			</div>
 			<div class="clear"> </div>
 		</div>
 		

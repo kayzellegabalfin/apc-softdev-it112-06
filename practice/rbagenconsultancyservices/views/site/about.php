@@ -21,13 +21,13 @@
 				<h3>About</h3>
 				<ul>
 					<li><a href="index.php">Home / </a></li>
-					<li><a href="#"><span>About</span></a></li>
+					<li><a href="./index.php?r=site%2Fabout"><span>About</span></a></li>
 				</ul>
 			</div>
 
 			<div class="about-grids">
 				<div class="about-left">
-					<h3>ABOUT CONNECT</h3>
+					<h3>RBA General Consultancy and Services</h3>
 					<div class="about-left-info">
 						<img src="images/about1.jpg" alt="" />
 						<h4>But I must explain to you how all this mistaken idea perspiciatis unde omnis iste </h4>
