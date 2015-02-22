@@ -17,7 +17,7 @@ use app\models\Region;
     <?= $form->field($model, 'province_code')->textInput(['maxlength' => 32]) ?>
 
     <?= $form->field($model, 'province_description')->textInput(['maxlength' => 32]) ?>
-
+	<?= $form->field($model, 'region_id')->textInput() ?>
 	<?php 
 		$region=region::find()->all();
 
