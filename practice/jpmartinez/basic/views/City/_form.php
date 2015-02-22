@@ -21,14 +21,14 @@ use yii\helpers\ArrayHelper;
 
 	<?php
 	
-$province=province::find()->all();
+	$province=province::find()->all();
 
 //use yii\helpers\ArrayHelper;
 
-$listData=ArrayHelper::map($province,'id','province_description');
+	$listData=ArrayHelper::map($province,'id','province_description');
 
  
-echo $form->field($model, 'province')->dropDownList(
+	echo $form->field($model, 'province')->dropDownList(
                                 $listData,
 
                                 ['prompt'=>'Select...']);

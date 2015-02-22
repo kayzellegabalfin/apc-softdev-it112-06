@@ -31,9 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'city_code',
             'city_description',
-       'model' => $province, 'attributes' => ['province_description'],
-        ],
-    ]
+       'province_id',
+     ],
+    ])
 	 ?>
 
 </div>
