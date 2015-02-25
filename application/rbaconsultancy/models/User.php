@@ -2,37 +2,59 @@
 
 namespace app\models;
 
-class User extends \yii\base\Object implements \yii\web\IdentityInterface
+use Yii;
+use yii\base\NotSupportedException;
+use yii\db\ActiveRecord;
+use yii\helpers\Security;
+use yii\web\IdentityInterface;
+
+
+
+class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
-    public $id;
-    public $username;
-    public $password;
     public $authKey;
-    public $accessToken;
-
-    private static $users = [
-        '100' => [
-            'id' => '100',
-            'username' => 'admin',
-            'password' => 'admin',
-            'authKey' => 'test100key',
-            'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
-        ],
-    ];
-
+    public static function tableName()
+    {
+        return 'user';
+    }
+	public function rules()
+    {
+        return [
+            [['user_id'], 'required'],
+            [['user_contact', 'user_age'], 'integer'],
+            [['user_birthdate'], 'safe'],
+            [['user_id'], 'string', 'max' => 50],
+            [['user_email', 'user_password', 'user_lname', 'user_fname', 'user_mname', 'user_housenum', 'user_street', 'user_city', 'user_country', 'user_postalcode', 'user_company', 'user_type'], 'string', 'max' => 250]
+        ];
+    }
+	public function attributeLabels()
+    {
+        return [
+            'user_id' => 'User ID',
+            'user_email' => 'User Email',
+            'user_password' => 'User Password',
+            'user_lname' => 'User Lname',
+            'user_fname' => 'User Fname',
+            'user_mname' => 'User Mname',
+            'user_housenum' => 'User Housenum',
+            'user_street' => 'User Street',
+            'user_city' => 'User City',
+            'user_country' => 'User Country',
+            'user_postalcode' => 'User Postalcode',
+            'user_contact' => 'User Contact',
+            'user_company' => 'User Company',
+            'user_birthdate' => 'User Birthdate',
+            'user_age' => 'User Age',
+            'user_type' => 'User Type',
+        ];
+    }
+		
     /**
      * @inheritdoc
      */
     public static function findIdentity($id)
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        return static :: findOne ($id);
     }
 
     /**
@@ -40,13 +62,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
-        }
-
-        return null;
+        return static :: findOne (['access_token' => $token]);
     }
 
     /**
@@ -55,15 +71,9 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      * @param  string      $username
      * @return static|null
      */
-    public static function findByUsername($username)
+    public static function findByUsername($user_email)
     {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
-        }
-
-        return null;
+       return static :: findOne (['user_email' => $user_email]);
     }
 
     /**
@@ -71,7 +81,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function getId()
     {
-        return $this->id;
+        return $this->user_id;
     }
 
     /**
@@ -96,8 +106,13 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      * @param  string  $password password to validate
      * @return boolean if password provided is valid for current user
      */
-    public function validatePassword($password)
+    public function validatePassword($user_password)
     {
-        return $this->password === $password;
+        return $this->user_password === $user_password;
     }
+	
+	
+	
 }
+
+
