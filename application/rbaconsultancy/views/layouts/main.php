@@ -1,5 +1,11 @@
 <?php
 use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+use app\assets\AppAsset;
+
+AppAsset::register($this);
 ?>
 
 <?php $this->beginPage() ?>
@@ -41,7 +47,25 @@ use yii\helpers\Html;
 
 <?php $this->beginBody() ?>
  <!---start-header---->
-    <div class="header" id="top">
+   
+			<?php 
+				NavBar::begin();
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-right'],
+                'items' => [
+				     Yii::$app->user->isGuest ?
+                        ['label' => 'Login', 'url' => ['/site/login']] :
+                        ['label' => 'Hello, ' . Yii::$app->user->identity->user_fname .' | Logout',
+                         'url' => ['/site/logout'],
+						 'linkOptions' => ['data-method' => 'post']],
+                ],
+            ]);
+            NavBar::end();
+			?>
+           
+
+
+   <div class="header" id="top">
         <div class="wrap">
             <div class="logo">
                 <a href="index.php"><img src="images/logo.png" title="logo" /></a>

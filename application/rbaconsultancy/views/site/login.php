@@ -1,3 +1,17 @@
+                
+            <div class="top-nav">
+                <ul>
+                    <li><a href="./index.php">Home</a></li>
+                    <li class="active"><a href="./index.php?r=site%2Fabout">About</a></li>
+                    <li><a href="./index.php?r=site%2Fservices">Services</a></li>
+                    <li><a href="./index.php?r=site%2Fcontact">Contact</a></li>
+                </ul>
+            </div>
+	</div>
+</div>	
+
+<!---start-content----->
+<div class="content">
 <?php
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -9,10 +23,15 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
+	<!---start-login---->
+	<div class="login">
+		<div class="wrap">
+			<div class="top-head">
+				<h3>Login</h3>
+				<div class="site-login">
+
+    <h2>Please fill out the following fields to login:</h2> <br>
 
     <?php $form = ActiveForm::begin([
         'id' => 'login-form',
@@ -23,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-    <?= $form->field($model, 'username') ?>
+    <?= $form->field($model, 'email')->input('email')?>
 
     <?= $form->field($model, 'password')->passwordInput() ?>
 
@@ -39,8 +58,27 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php ActiveForm::end(); ?>
 
-    <div class="col-lg-offset-1" style="color:#999;">
-        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-        To modify the username/password, please check out the code <code>app\models\User::$users</code>.
-    </div>
-</div>
+    
+			</div>
+
+			
+					<!---End-ourteam---->
+				</div>
+			</div>
+			<!---End-about---->
+		</div>
+			<div class="footer">
+				<div class="wrap">
+					<div class="footer-left">
+						<a href="index.php"><img src="images/logo1.png" alt="" /></a>
+					</div>
+					<div class="footer-right">
+						<a href="#top" class="scroll"> </a>
+					</div>
+					<div class="clear"> </div>
+				</div>
+			</div>
+		</div>
+		<!---End-content----->
+		<!---End-wrap---->
+
