@@ -49,7 +49,11 @@ AppAsset::register($this);
  <!---start-header---->
    
 			<?php 
-				NavBar::begin();
+				NavBar::begin([
+                    'options' => [
+                    'class' => 'navbar-inverse navbar-fixed-top',
+                ],
+            ]);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
