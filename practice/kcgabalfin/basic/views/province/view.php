@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Province */
 
-$this->title = $model->id;
+$this->title = $model->province_code;
 $this->params['breadcrumbs'][] = ['label' => 'Provinces', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'province_code',
             'province_description',
-            ['label' => 'Region Description', 'value' => $model->region->region_description],
+			'region.region_description',
         ],
     ]) ?>
 
