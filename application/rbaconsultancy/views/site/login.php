@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	
 	 <div class="form-group">
         <div class="col-lg-offset-1 col-lg-11">
-         <h1> <a href="./index.php?r=site%2Fsignup"><span>Create new account?</span></a> </h1>
+         <h1> <a href="./index.php?r=site%2Fregister"><span>Create new account?</span></a> </h1>
         </div>
     </div>
 	
@@ -78,7 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					<!---End-ourteam---->
 				</div>
 			</div>
-			<!---End-about---->
+			<!---End-login---->
 		</div>
 			<div class="footer">
 				<div class="wrap">
