@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2015 at 06:05 PM
+-- Generation Time: Feb 28, 2015 at 06:13 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `myaddress` (
   `id` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `middlename` varchar(30) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
   `gender` varchar(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `home_address` varchar(50) DEFAULT NULL,
