@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2015 at 05:29 PM
+-- Generation Time: Feb 28, 2015 at 05:38 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -23,6 +23,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `myaddress`
+--
+
+CREATE TABLE IF NOT EXISTS `myaddress` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(30) NOT NULL,
+  `middlename` varchar(30) NOT NULL,
+  `gender` varchar(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `mycomment`
 --
 
@@ -37,6 +51,12 @@ CREATE TABLE IF NOT EXISTS `mycomment` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `myaddress`
+--
+ALTER TABLE `myaddress`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `mycomment`
