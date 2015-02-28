@@ -8,10 +8,13 @@ body {
     height: auto;
     margin: 0 auto -60px;
     padding: 0 0 60px;
+	background-color: #5CCECE;
+	font-family: Times New Roman;
 }
 
 .wrap > .container {
     padding: 70px 15px 20px;
+	background-color: #F3F3F3;
 }
 
 .footer {
