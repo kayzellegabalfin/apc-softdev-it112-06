@@ -10,6 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $firstname
  * @property string $middlename
+ * @property string $lastname
  * @property string $gender
  * @property string $created_at
  * @property string $home_address
@@ -34,12 +35,12 @@ class Myaddress extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'firstname', 'middlename', 'gender'], 'required'],
+            [['id', 'firstname', 'middlename', 'lastname', 'gender'], 'required'],
             [['id'], 'integer'],
             [['created_at'], 'safe'],
             [['firstname', 'middlename'], 'string', 'max' => 30],
+            [['lastname', 'home_address'], 'string', 'max' => 50],
             [['gender'], 'string', 'max' => 1],
-            [['home_address'], 'string', 'max' => 50],
             [['landline', 'cellphone'], 'string', 'max' => 20]
         ];
     }
@@ -51,9 +52,10 @@ class Myaddress extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'firstname' => 'Firstname',
-            'middlename' => 'Middlename',
-            'gender' => 'Gender',
+            'firstname' => 'First Name',
+            'middlename' => 'Middle Name',
+            'lastname' => 'Last Name',
+            'gender' => 'Male/Female',
             'created_at' => 'Created At',
             'home_address' => 'Home Address',
             'landline' => 'Landline',
