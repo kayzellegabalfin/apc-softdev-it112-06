@@ -23,7 +23,7 @@ use yii\helpers\ArrayHelper;
 	$listData=ArrayHelper::map($myaddress,'id','lastname');
 
  
-	echo $form->field($model, 'myaddress')->dropDownList(
+	echo $form->field($model, 'myaddress_id')->dropDownList(
                                 $listData,
 
                                 ['prompt'=>'Select Lastname...']);
