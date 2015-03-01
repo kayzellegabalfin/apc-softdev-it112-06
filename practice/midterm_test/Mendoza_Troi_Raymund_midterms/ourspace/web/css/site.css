@@ -16,14 +16,14 @@ body {
 
 .footer {
     height: 60px;
-    background-color: #f5f5f5;
+    background-color: ##5858FA;
     border-top: 1px solid #ddd;
     padding-top: 20px;
 }
 
 .jumbotron {
     text-align: center;
-    background-color: transparent;
+    background-color: #5858FA;
 }
 
 .jumbotron .btn {
