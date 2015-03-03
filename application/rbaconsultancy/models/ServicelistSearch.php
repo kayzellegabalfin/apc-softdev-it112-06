@@ -8,9 +8,9 @@ use yii\data\ActiveDataProvider;
 use app\models\ServiceList;
 
 /**
- * ServicelistSearch represents the model behind the search form about `app\models\ServiceList`.
+ * ServiceListSearch represents the model behind the search form about `app\models\ServiceList`.
  */
-class ServicelistSearch extends ServiceList
+class ServiceListSearch extends ServiceList
 {
     /**
      * @inheritdoc

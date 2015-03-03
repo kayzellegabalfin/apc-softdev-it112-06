@@ -4,15 +4,15 @@ namespace app\controllers;
 
 use Yii;
 use app\models\ServiceList;
-use app\models\ServicelistSearch;
+use app\models\ServiceListSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ServicelistController implements the CRUD actions for ServiceList model.
+ * ServiceListController implements the CRUD actions for ServiceList model.
  */
-class ServicelistController extends Controller
+class ServiceListController extends Controller
 {
     public function behaviors()
     {
@@ -32,7 +32,7 @@ class ServicelistController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ServicelistSearch();
+        $searchModel = new ServiceListSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
