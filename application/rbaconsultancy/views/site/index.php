@@ -13,7 +13,7 @@ use yii\helpers\Html;
                 </ul>
 			</div>
 
-<!---start-content----->				
+<!---start-content-->				
 	<div class="image-slider">
 			<ul class="rslides" id="slider1">
 				<li><img src="images/slider1.png" alt=""></li>
@@ -100,21 +100,6 @@ use yii\helpers\Html;
 		
 		<div class="clear"> </div>
 	</div>
-<!--end-content--->
+<!--end-content-->
 
-     <!---start-footer--->
-	 <div class="border">
-			</div>
-			<div class="footer">
-				<div class="wrap">
-					<div class="footer-left">
-						<a href="index.php"><img src="images/logo1.png" alt="" /></a>
-					</div>
-					<div class="footer-right">
-						<a href="#top" class="scroll"> </a>
-					</div>
-					<div class="clear"> </div>
-				</div>
-			</div>
-		</div>
-       <!---end-footer--->
+     

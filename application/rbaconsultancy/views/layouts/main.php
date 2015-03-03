@@ -49,6 +49,17 @@ use yii\helpers\Html;
             </div>	
  <!---End-header---->
      <?= $content ?>
+			<div class="footer">
+				<div class="wrap">
+					<div class="footer-left">
+						<a href="index.php"><img src="images/logo1.png" alt="" /></a>
+					</div>
+					<div class="footer-right">
+						<a href="#top" class="scroll"> </a>
+					</div>
+					<div class="clear"> </div>
+				</div>
+			</div>  
 <?php $this->endBody() ?>
 </body>
 </html>
