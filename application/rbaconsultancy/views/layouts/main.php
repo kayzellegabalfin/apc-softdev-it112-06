@@ -15,6 +15,7 @@ use yii\helpers\Html;
  
 	<?= Html::cssFile('@web/css/style.css') ?>
     <?= Html::cssFile('@web/css/responsiveslides.css') ?>
+    <?= Html::cssFile('@web/fonts/font-awesome/css/font-awesome.min.css') ?>
     
 	<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>   

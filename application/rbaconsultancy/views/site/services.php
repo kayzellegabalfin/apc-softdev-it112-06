@@ -10,8 +10,7 @@
 	</div>
 </div>	
 		<link rel="stylesheet" type="text/css" href="css/tabs.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/component.css" />		
 
 		<div class="about">
 		<div class="wrap">
@@ -37,7 +36,7 @@
 				<div class="content">
 					<section id="section-1">
 						<div class="mediabox">
-							<a href="#">Conversion to Non-Quota Immigrant by Marriage</a>
+							<a href="./index.php?r=site%2Fservices_1">Conversion to Non-Quota Immigrant by Marriage</a>
 							<p>For a foreign national on the basis of his valid marriage to a Philippine citizen.</p>
 						</div>
 						<div class="mediabox">
