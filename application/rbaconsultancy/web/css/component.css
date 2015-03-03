@@ -138,11 +138,15 @@
 	margin: 0 auto;
 }
 
-.mediabox h3 {
+.mediabox a{
 	margin: 0.75em 0 0.5em;
 	color: #3e454d;
 	font-family: 'Archivo Narrow', sans-serif;
 	text-transform: uppercase;
+}
+
+.mediabox a:hover{
+	color: #23B3B7;
 }
 
 .mediabox p {
@@ -178,7 +182,7 @@
 		max-width: 40%;
 	}
 
-	.mediabox h3 {
+	.mediabox a {
 		margin-top: 0;
 	}
 
@@ -225,7 +229,7 @@
 		max-width: 100%;
 	}
 
-	.mediabox h3 {
+	.mediabox a {
 		margin: 1.25em 0 1em;
 	}
 
