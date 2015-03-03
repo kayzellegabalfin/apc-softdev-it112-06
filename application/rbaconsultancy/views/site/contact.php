@@ -26,8 +26,8 @@ use yii\captcha\Captcha;
 
 </div>
 
-		<!---start-content----->
-			<!---start-contact----->
+		<!--start-content-->
+			<!--start-contact-->
 			<div class="contact">
 		 		<div class="wrap">
 		 			<div class="top-head">
@@ -83,47 +83,21 @@ use yii\captcha\Captcha;
 							
 							<?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 							<span><?= $form->field($model, 'name') ?> </span>
-							<span><?= $form->field($model, 'email') ?> <span>
-							<span><?= $form->field($model, 'subject') ?> <span>
-							<span><?= $form->field($model, 'body')->textArea(['rows' => 6]) ?> <span>
+							<span><?= $form->field($model, 'email') ?> </span>
+							<span><?= $form->field($model, 'subject') ?> </span>
+							<span><?= $form->field($model, 'body')->textArea(['rows' => 6]) ?> </span>
 							<span><?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
 									'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-									]) ?> <span>
-							
-									<div class="form-group">
-										<?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-									</div>
-									<?php ActiveForm::end(); ?>
-								
+									]) ?> </span>
 
+							<span><input type="submit" value="Submit"></span>
+
+						<?php ActiveForm::end(); ?>
 						<?php endif; ?>	  
-				  
-				  	
-						<form method="post" action="contact-post.html">
-					    	<div>
-						    	<span><label>NAME</label></span>
-						    	<span><input name="userName" type="text" class="textbox"></span>
-						    </div>
-						    <div>
-						    	<span><label>E-MAIL</label></span>
-						    	<span><input name="userEmail" type="text" class="textbox"></span>
-						    </div>
-						    <div>
-						     	<span><label>MOBILE</label></span>
-						    	<span><input name="userPhone" type="text" class="textbox"></span>
-						    </div>
-						    <div>
-						    	<span><label>SUBJECT</label></span>
-						    	<span><textarea name="userMsg"> </textarea></span>
-						    </div>
-						   <div>
-						   		<span><input type="submit" value="Submit"></span>
-						  </div>
-					    </form>
-
+						   		
 				    </div>
   				</div>				
 			  </div>
 			</div>
-			<!---End-contact----->
+			<!--End-contact-->
 		</div>
