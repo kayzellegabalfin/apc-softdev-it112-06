@@ -90,6 +90,11 @@ class SiteController extends Controller
         }
     }
 
+    public function actionServices()
+    {
+        return $this->render('services');
+    }
+
     public function actionAbout()
     {
         return $this->render('about');
