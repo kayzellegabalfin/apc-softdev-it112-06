@@ -21,8 +21,8 @@
 					<li><a href="./index.php?r=site%2Fservices"><span>Services</span></a></li>
 				</ul>
 			</div>
-			</div>
-			</div>
+		</div>
+		</div>
 
 		<div class="container">	
 			<div id="tabs" class="tabs">
