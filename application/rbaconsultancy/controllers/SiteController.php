@@ -105,6 +105,11 @@ class SiteController extends Controller
         return $this->render('admin-panel');
     }
 
+    public function actionMyAccount()
+    {
+        return $this->render('my-account');
+    }
+
     public function actionAbout()
     {
         return $this->render('about');

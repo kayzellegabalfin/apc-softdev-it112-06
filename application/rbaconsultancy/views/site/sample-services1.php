@@ -4,6 +4,7 @@
                     <li><a href="./index.php?r=site%2Fabout">About</a></li>
                     <li class="active"><a href="./index.php?r=site%2Fservices">Services</a></li>
                     <li><a href="./index.php?r=site%2Fcontact">Contact</a></li>
+                    <li><a href="./index.php?r=site%2Fmy-account">My Account</a></li>
                     <li><a href="./index.php?r=site%2Fadmin-panel">Admin's Panel</a></li>
                 </ul>
             </div>
