@@ -100,6 +100,11 @@ class SiteController extends Controller
         return $this->render('sample-services1');
     }
 
+    public function actionAdminPanel()
+    {
+        return $this->render('admin-panel');
+    }
+
     public function actionAbout()
     {
         return $this->render('about');
