@@ -1,76 +1,67 @@
 <?php
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use frontend\assets\AppAsset;
-use frontend\widgets\Alert;
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-
-AppAsset::register($this);
 ?>
+
 <?php $this->beginPage() ?>
+
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link href="favicon.ico" rel="icon" type="image/x-icon" />
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+ 
+	<?= Html::cssFile('@web/css/style.css') ?>
+    <?= Html::cssFile('@web/css/responsiveslides.css') ?>
+    <?= Html::cssFile('@web/fonts/font-awesome/css/font-awesome.min.css') ?>
+    
+	<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>   
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	
+	<?= Html::jsFile('@web/js/responsiveslides.min.js') ?>
+	<?= Html::script('$(function () {
+			      	$("#slider1").responsiveSlides({
+			        maxwidth: 1600,
+			        speed: 600
+			      		});
+					});'); ?>
+	
+	<?= Html::script('jQuery(document).ready(function($) {
+					$(".scroll").click(function(event){		
+					event.preventDefault();
+					$(\'html,body\').animate({scrollTop:$(this.hash).offset().top},1200);
+					});
+					});'); ?>
     <?php $this->head() ?>
 </head>
 <body>
-    <?php $this->beginBody() ?>
-    <div class="wrap">
-        <?php
-            NavBar::begin([
-                'brandLabel' => 'My Company',
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
-                ],
-            ]);
-            $menuItems = [
-                ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'About', 'url' => ['/site/about']],
-                ['label' => 'Contact', 'url' => ['/site/contact']],
-            ];
-            if (Yii::$app->user->isGuest) {
-                $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-            } else {
-                $menuItems[] = [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ];
-            }
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => $menuItems,
-            ]);
-            NavBar::end();
-        ?>
 
-        <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="pull-right"><?= Yii::powered() ?></p>
-        </div>
-    </footer>
-
-    <?php $this->endBody() ?>
+<?php $this->beginBody() ?>
+ <!---start-header---->
+   
+   <div class="header" id="top">
+        <div class="wrap">
+            <div class="logo">
+                <a href="index.php"><img src="images/logo.png" title="logo" /></a>
+            </div>	
+ <!---End-header---->
+     <?= $content ?>
+			<div class="footer">
+				<div class="wrap">
+					<div class="footer-left">
+						<a href="index.php"><img src="images/logo1.png" alt="" /></a>
+					</div>
+					<div class="footer-right">
+						<a href="#top" class="scroll"> </a>
+					</div>
+					<div class="clear"> </div>
+				</div>
+			</div>  
+<?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
