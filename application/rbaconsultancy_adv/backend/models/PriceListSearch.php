@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Servicelist;
+use backend\models\Pricelist;
 
 /**
- * ServicelistSearch represents the model behind the search form about `backend\models\Servicelist`.
+ * PricelistSearch represents the model behind the search form about `backend\models\Pricelist`.
  */
-class ServicelistSearch extends Servicelist
+class PricelistSearch extends Pricelist
 {
     /**
      * @inheritdoc
@@ -18,8 +18,9 @@ class ServicelistSearch extends Servicelist
     public function rules()
     {
         return [
-            [['slist_id'], 'integer'],
-            [['slist_name', 'slist_desc', 'slist_type', 'slist_dateadded'], 'safe'],
+            [['plist_id', 'slist_id'], 'integer'],
+            [['plist_name', 'plist_dateadded'], 'safe'],
+            [['plist_price'], 'number'],
         ];
     }
 
@@ -41,7 +42,7 @@ class ServicelistSearch extends Servicelist
      */
     public function search($params)
     {
-        $query = Servicelist::find();
+        $query = Pricelist::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -56,13 +57,13 @@ class ServicelistSearch extends Servicelist
         }
 
         $query->andFilterWhere([
+            'plist_id' => $this->plist_id,
+            'plist_price' => $this->plist_price,
+            'plist_dateadded' => $this->plist_dateadded,
             'slist_id' => $this->slist_id,
-            'slist_dateadded' => $this->slist_dateadded,
         ]);
 
-        $query->andFilterWhere(['like', 'slist_name', $this->slist_name])
-            ->andFilterWhere(['like', 'slist_desc', $this->slist_desc])
-            ->andFilterWhere(['like', 'slist_type', $this->slist_type]);
+        $query->andFilterWhere(['like', 'plist_name', $this->plist_name]);
 
         return $dataProvider;
     }

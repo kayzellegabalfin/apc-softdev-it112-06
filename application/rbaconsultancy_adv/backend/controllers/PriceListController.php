@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Servicelist;
-use backend\models\ServicelistSearch;
+use backend\models\Pricelist;
+use backend\models\PricelistSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ServicelistController implements the CRUD actions for Servicelist model.
+ * PricelistController implements the CRUD actions for Pricelist model.
  */
-class ServicelistController extends Controller
+class PricelistController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class ServicelistController extends Controller
     }
 
     /**
-     * Lists all Servicelist models.
+     * Lists all Pricelist models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ServicelistSearch();
+        $searchModel = new PricelistSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class ServicelistController extends Controller
     }
 
     /**
-     * Displays a single Servicelist model.
+     * Displays a single Pricelist model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +54,16 @@ class ServicelistController extends Controller
     }
 
     /**
-     * Creates a new Servicelist model.
+     * Creates a new Pricelist model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Servicelist();
+        $model = new Pricelist();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->slist_id]);
+            return $this->redirect(['view', 'id' => $model->plist_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +72,7 @@ class ServicelistController extends Controller
     }
 
     /**
-     * Updates an existing Servicelist model.
+     * Updates an existing Pricelist model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +82,7 @@ class ServicelistController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->slist_id]);
+            return $this->redirect(['view', 'id' => $model->plist_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -91,7 +91,7 @@ class ServicelistController extends Controller
     }
 
     /**
-     * Deletes an existing Servicelist model.
+     * Deletes an existing Pricelist model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class ServicelistController extends Controller
     }
 
     /**
-     * Finds the Servicelist model based on its primary key value.
+     * Finds the Pricelist model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Servicelist the loaded model
+     * @return Pricelist the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Servicelist::findOne($id)) !== null) {
+        if (($model = Pricelist::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

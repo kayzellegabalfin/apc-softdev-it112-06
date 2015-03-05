@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\ServiceList */
+/* @var $model backend\models\Servicelist */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="service-list-form">
+<div class="servicelist-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
