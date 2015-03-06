@@ -10,11 +10,11 @@ use yii\widgets\ActiveForm;
 
 <div class="user-form">
 
+
     <?php $form = ActiveForm::begin(); ?>
 
+<!--
     <?= $form->field($model, 'id')->textInput() ?>
-
-    <?= $form->field($model, 'username')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'auth_key')->textInput(['maxlength' => 32]) ?>
 
@@ -22,13 +22,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'password_reset_token')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?>
-
     <?= $form->field($model, 'status')->textInput() ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>
 
     <?= $form->field($model, 'updated_at')->textInput() ?>
+-->
+
+    <?= $form->field($model, 'username')->textInput(['maxlength' => 255]) ?>
+
+    <?= $form->field($model, 'email')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'user_lastname')->textInput(['maxlength' => 25]) ?>
 
@@ -58,7 +61,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'user_age')->textInput() ?>
 
-    <?= $form->field($model, 'user_type')->textInput(['maxlength' => 15]) ?>
+    <?= $form->field($model, 'user_type')->dropDownList(['Client' => 'Client', 'Administrator' => 'Administrator']) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
