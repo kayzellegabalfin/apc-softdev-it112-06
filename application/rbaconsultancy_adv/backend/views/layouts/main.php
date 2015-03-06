@@ -39,13 +39,16 @@ AppAsset::register($this);
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
             } else {
                 $menuItems = [
-                    ['label' => 'Users', 'url' => ['/user/index']],
-                    ['label' => 'Services List', 'url' => ['/servicelist/index']],
-                    ['label' => 'Services', 'url' => ['/services/index']],
-                    ['label' => 'Requirements List', 'url' => ['/requirementslist/index']],
-                    ['label' => 'Requirements Per Service', 'url' => ['/requirementsperservice/index']],
-                    ['label' => 'Requirements Per User', 'url' => ['/requirementsperuser/index']],
-                    ['label' => 'Price List', 'url' => ['/pricelist/index']],
+                    ['label' => 'Home', 'url' => ['/site/index']],
+                    ['label' => 'Database Tables', 'items' => [
+                        ['label' => 'Users', 'url' => ['/user/index']],
+                        ['label' => 'Services List', 'url' => ['/servicelist/index']],
+                        ['label' => 'Services', 'url' => ['/services/index']],
+                        ['label' => 'Requirements List', 'url' => ['/requirementslist/index']],
+                        ['label' => 'Requirements Per Service', 'url' => ['/requirementsperservice/index']],
+                        ['label' => 'Requirements Per User', 'url' => ['/requirementsperuser/index']],
+                        ['label' => 'Price List', 'url' => ['/pricelist/index']]
+                    ]],
                     ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
                         'url' => ['/site/logout'],
                         'linkOptions' => ['data-method' => 'post']],
