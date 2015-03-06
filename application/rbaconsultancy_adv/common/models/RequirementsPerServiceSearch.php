@@ -1,14 +1,14 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\RequirementsPerService;
+use common\models\RequirementsPerService;
 
 /**
- * RequirementsPerServiceSearch represents the model behind the search form about `backend\models\RequirementsPerService`.
+ * RequirementsPerServiceSearch represents the model behind the search form about `common\models\RequirementsPerService`.
  */
 class RequirementsPerServiceSearch extends RequirementsPerService
 {

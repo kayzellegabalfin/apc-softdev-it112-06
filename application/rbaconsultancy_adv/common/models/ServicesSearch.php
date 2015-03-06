@@ -1,14 +1,14 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Services;
+use common\models\Services;
 
 /**
- * ServicesSearch represents the model behind the search form about `backend\models\Services`.
+ * ServicesSearch represents the model behind the search form about `common\models\Services`.
  */
 class ServicesSearch extends Services
 {

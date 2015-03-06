@@ -1,16 +1,16 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Servicelist;
+use common\models\RequirementsPerUser;
 
 /**
- * ServicelistSearch represents the model behind the search form about `backend\models\Servicelist`.
+ * RequirementsPerUserSearch represents the model behind the search form about `common\models\RequirementsPerUser`.
  */
-class ServicelistSearch extends Servicelist
+class RequirementsPerUserSearch extends RequirementsPerUser
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class ServicelistSearch extends Servicelist
     public function rules()
     {
         return [
-            [['slist_id'], 'integer'],
-            [['slist_name', 'slist_desc', 'slist_type', 'slist_dateadded'], 'safe'],
+            [['rpu_id', 'rps_id', 'user_id'], 'integer'],
+            [['rpu_status', 'rpu_datefilesubmitted', 'rpu_fileuploaded'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class ServicelistSearch extends Servicelist
      */
     public function search($params)
     {
-        $query = Servicelist::find();
+        $query = RequirementsPerUser::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -56,13 +56,14 @@ class ServicelistSearch extends Servicelist
         }
 
         $query->andFilterWhere([
-            'slist_id' => $this->slist_id,
-            'slist_dateadded' => $this->slist_dateadded,
+            'rpu_id' => $this->rpu_id,
+            'rpu_datefilesubmitted' => $this->rpu_datefilesubmitted,
+            'rps_id' => $this->rps_id,
+            'user_id' => $this->user_id,
         ]);
 
-        $query->andFilterWhere(['like', 'slist_name', $this->slist_name])
-            ->andFilterWhere(['like', 'slist_desc', $this->slist_desc])
-            ->andFilterWhere(['like', 'slist_type', $this->slist_type]);
+        $query->andFilterWhere(['like', 'rpu_status', $this->rpu_status])
+            ->andFilterWhere(['like', 'rpu_fileuploaded', $this->rpu_fileuploaded]);
 
         return $dataProvider;
     }

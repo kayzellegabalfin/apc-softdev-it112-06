@@ -1,14 +1,14 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\RequirementsList;
+use common\models\RequirementsList;
 
 /**
- * RequirementsListSearch represents the model behind the search form about `backend\models\RequirementsList`.
+ * RequirementsListSearch represents the model behind the search form about `common\models\RequirementsList`.
  */
 class RequirementsListSearch extends RequirementsList
 {

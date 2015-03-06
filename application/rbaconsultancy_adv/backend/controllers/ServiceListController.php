@@ -3,8 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Servicelist;
-use backend\models\ServicelistSearch;
+use common\models\Servicelist;
+use common\models\ServicelistSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
