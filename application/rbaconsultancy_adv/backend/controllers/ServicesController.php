@@ -1,6 +1,6 @@
 <?php
 
-namespace common\models;
+namespace backend\controllers;
 
 use Yii;
 use common\models\Services;

@@ -33,17 +33,25 @@ AppAsset::register($this);
             ]);
             $menuItems = [
                 ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'Users', 'url' => ['/user/index']],
             ];
+
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
             } else {
-                $menuItems[] = [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
+                $menuItems = [
+                    ['label' => 'Users', 'url' => ['/user/index']],
+                    ['label' => 'Services List', 'url' => ['/servicelist/index']],
+                    ['label' => 'Services', 'url' => ['/services/index']],
+                    ['label' => 'Requirements List', 'url' => ['/requirementslist/index']],
+                    ['label' => 'Requirements Per Service', 'url' => ['/requirementsperservice/index']],
+                    ['label' => 'Requirements Per User', 'url' => ['/requirementsperuser/index']],
+                    ['label' => 'Price List', 'url' => ['/pricelist/index']],
+                    ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                        'url' => ['/site/logout'],
+                        'linkOptions' => ['data-method' => 'post']],
                 ];
             }
+            
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => $menuItems,
