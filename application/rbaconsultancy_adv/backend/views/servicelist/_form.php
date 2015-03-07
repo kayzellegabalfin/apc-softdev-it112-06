@@ -12,17 +12,17 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'slist_id')->textInput() ?>
+     <?= $form->field($model, 'slist_id')->textInput() ?> 
 
-    <?= $form->field($model, 'slist_name')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'slist_name')->textarea(['rows' => 6]) ->label('Service Name') ?>
 
-    <?= $form->field($model, 'slist_desc')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'slist_desc')->textarea(['rows' => 6])->label('Service Description') ?>
 
     
-	<?php echo $form->field($model, 'slist_type')->dropDownList(['Immigrant Visa' => 'Immigrant Visa', 'Non Immigrant Visa' => 'Non Immigrant Visa', 'Special Visa' => 'Special Visa'], ['prompt'=>'Type of Visa...']); ?>
+	<?php echo $form->field($model, 'slist_type')->label('Type of Services')->dropDownList(['Immigrant Visa' => 'Immigrant Visa', 'Non Immigrant Visa' => 'Non Immigrant Visa', 'Special Visa' => 'Special Visa'], ['prompt'=>'Type of Visa...']); ?>
            
 	
-    <?= $form->field($model, 'slist_dateadded')->textInput() ?>
+   <!-- <?= $form->field($model, 'slist_dateadded')->textInput() ?> --->
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

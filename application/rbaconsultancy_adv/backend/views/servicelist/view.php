@@ -29,10 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'slist_id',
-            'slist_name:ntext',
-            'slist_desc:ntext',
-            'slist_type',
-            'slist_dateadded',
+			['attribute' => 'slist_name', 'label' => 'Service Name'],
+			['attribute' => 'slist_desc', 'label' => 'Service Description'],
+			['attribute' => 'slist_type', 'label' => 'Service Type'],
+            ['attribute' => 'slist_dateadded', 'label' => 'Service Date Added'], 
         ],
     ]) ?>
 
