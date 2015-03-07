@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Servicelist */
 /* @var $form yii\widgets\ActiveForm */
@@ -18,8 +18,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'slist_desc')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'slist_type')->textInput(['maxlength' => 45]) ?>
-
+    
+	<?php echo $form->field($model, 'slist_type')->dropDownList(['Immigrant Visa' => 'Immigrant Visa', 'Non Immigrant Visa' => 'Non Immigrant Visa', 'Special Visa' => 'Special Visa'], ['prompt'=>'Type of Visa...']); ?>
+           
+	
     <?= $form->field($model, 'slist_dateadded')->textInput() ?>
 
     <div class="form-group">
