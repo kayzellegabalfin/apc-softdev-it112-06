@@ -17,14 +17,14 @@ use common\models\requirementslist;
 
     <?= $form->field($model, 'rps_id')->textInput() ?>
 
-    <?= $form->field($model, 'rps_name')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'rps_name')->textarea(['rows' => 6])->label('Requirements Per Service Name') ?>
 
    	<?php
 			$servicelist=servicelist::find()->all();
 	
 		$listData=ArrayHelper::map($servicelist,'slist_id','slist_name');
 
-			echo $form->field($model, 'slist_id')->dropDownList(
+			echo $form->field($model, 'slist_id')->label('Service List Name')->dropDownList(
 								$listData,
 									['prompt'=>'Select Service Name...']);
 		?>
@@ -34,7 +34,7 @@ use common\models\requirementslist;
 	
 		$listData=ArrayHelper::map($requirementslist,'rlist_id','rlist_name');
 
-			echo $form->field($model, 'rlist_id')->dropDownList(
+			echo $form->field($model, 'rlist_id')->label('Requirements List Name')->dropDownList(
 								$listData,
 									['prompt'=>'Select Requirements Name...']);
 		?>

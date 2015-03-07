@@ -26,10 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'rps_id',
-            'rps_name:ntext',
-            'slist_id',
-            'rlist_id',
-
+			['attribute' => 'rps_name', 'label' => 'Requirements Per Service Name Name'],
+			['attribute' => 'slist_name', 'label' => 'Services Name'],
+			['attribute' => 'rlist_name', 'label' => 'Requirements Name'],
+            
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

@@ -29,9 +29,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'rps_id',
+              'rps_id',
+			['attribute' => 'rps_name', 'label' => 'Requirements Per Service Name Name'],
+			['attribute' => 'slist_name', 'label' => 'Services Name'],
+			['attribute' => 'rlist_name', 'label' => 'Requirements Name'],
             'rps_name:ntext',
-            'slist_id',
-            'rlist_id',
+          
         ],
     ]) ?>
 
