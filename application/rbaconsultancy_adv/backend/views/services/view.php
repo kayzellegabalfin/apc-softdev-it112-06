@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Services */
 
 $this->title = $model->service_id;
-$this->params['breadcrumbs'][] = ['label' => 'Services', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Visa Transactions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="services-view">
