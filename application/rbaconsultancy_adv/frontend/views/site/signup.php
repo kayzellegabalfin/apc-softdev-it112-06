@@ -17,9 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-                <?= $form->field($model, 'username') ?>
-                <?= $form->field($model, 'email') ?>
-                <?= $form->field($model, 'password')->passwordInput() ?>
+                <?= $form->field($model, 'username')->label('Username') ?>
+                <?= $form->field($model, 'email')->label('Email Address') ?>
+                <?= $form->field($model, 'user_firstname')->label('First Name') ?>
+                <?= $form->field($model, 'user_lastname')->label('Last Name') ?>
+                <?= $form->field($model, 'password')->passwordInput()->label('Password') ?>
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>

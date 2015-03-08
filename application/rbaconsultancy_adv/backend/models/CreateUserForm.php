@@ -1,5 +1,5 @@
 <?php
-namespace frontend\models;
+namespace backend\models;
 
 use common\models\User;
 use yii\base\Model;
@@ -8,7 +8,7 @@ use Yii;
 /**
  * Signup form
  */
-class SignupForm extends Model
+class CreateUserForm extends Model
 {
     public $username;
     public $user_firstname;
@@ -44,7 +44,7 @@ class SignupForm extends Model
      *
      * @return User|null the saved model or null if saving fails
      */
-    public function signup()
+    public function createUser()
     {
         if ($this->validate()) {
             $user = new User();

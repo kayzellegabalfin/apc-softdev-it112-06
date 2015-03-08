@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use common\models\UserMain;
 use common\models\UserMainSearch;
+use backend\models\CreateUserForm;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -59,7 +60,7 @@ class UserController extends Controller
      * @return mixed
      */
     public function actionCreate()
-    {
+    /*{
         $model = new UserMain();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -69,6 +70,21 @@ class UserController extends Controller
                 'model' => $model,
             ]);
         }
+    } 
+
+   public function actionSignup() */
+    {
+        $model = new CreateUserForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->createUser()) {
+                    return $this->redirect(['index']);
+                }
+            
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
