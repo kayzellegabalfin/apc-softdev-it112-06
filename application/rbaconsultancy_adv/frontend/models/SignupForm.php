@@ -1,7 +1,7 @@
 <?php
 namespace frontend\models;
 
-use common\models\User;
+use common\models\UserSignUp;
 use yii\base\Model;
 use Yii;
 
@@ -43,7 +43,7 @@ class SignupForm extends Model
     public function signup()
     {
         if ($this->validate()) {
-            $user = new User();
+            $user = new UserSignUp();
             $user->username = $this->username;
             $user->email = $this->email;
             $user->setPassword($this->password);
