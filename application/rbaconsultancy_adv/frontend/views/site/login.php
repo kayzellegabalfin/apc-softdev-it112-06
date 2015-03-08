@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="section group"> 
                 <div class="col span_1_of_3">
                 <div class="contact-form">
-                    <p>Please fill out the following fields to login:</p>
+                    <p>Please fill out the following fields to login:</p><br>
 
                     <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
                     <span><?= $form->field($model, 'username') ?> </span> <br>
