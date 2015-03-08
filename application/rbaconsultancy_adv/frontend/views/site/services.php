@@ -1,16 +1,25 @@
                 
-            <div class="top-nav">
+        	<div class="top-nav">
                 <ul>
                     <li><a href="./index.php">Home</a></li>
                     <li><a href="./index.php?r=site%2Fabout">About</a></li>
                     <li class="active"><a href="./index.php?r=site%2Fservices">Services</a></li>
                     <li><a href="./index.php?r=site%2Fcontact">Contact</a></li>
-                    <li><a href="./index.php?r=site%2Fmy-account">My Account</a></li>
-                    <li><a href="./index.php?r=site%2Fadmin-panel">Admin's Panel</a></li>
+				<?php
+
+				if (Yii::$app->user->isGuest) {
+					echo "<li><a href=\"./index.php?r=site%2Flogin\">Login</a></li>" ;
+					echo "<li><a href=\"./index.php?r=site%2Fsignup\">Signup</a></li>" ;
+				} else {
+					echo "<li><a href=\"./index.php?r=site%2Fmy-account\">My Account</a></li>" ;
+					echo "<li><a href=\"http://localhost/rbaconsultancy_adv/backend/web/index.php\" target=\"_blank\">Admin's Panel</a></li>" ;
+					echo "<li><a href=\"./index.php?r=site%2Flogout\">Logout, " . (Yii::$app->user->identity->username) . "</a></li>" ;
+				}
+				?>                   
                 </ul>
-            </div>
-	</div>
-</div>	
+			</div>	</div>
+		
+		</div>	
 		<link rel="stylesheet" type="text/css" href="css/tabs.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />		
 

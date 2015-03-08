@@ -880,7 +880,7 @@ img{max-width:100%;}
 	padding-bottom:5px;
 	font-family: 'Archivo Narrow', sans-serif;
 }
-.contact-form input[type="text"],.contact-form textarea{
+.contact-form input[type="text"],.contact-form textarea, .contact-form input[type="password"]{
 		    padding:8px;
 			display:block;
 			width:98%;
