@@ -12,14 +12,14 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-     <?= $form->field($model, 'slist_id')->textInput() ?> 
+   <!-- <?= $form->field($model, 'slist_id')->textInput() ?> -->
 
     <?= $form->field($model, 'slist_name')->textarea(['rows' => 6]) ->label('Service Name') ?>
 
     <?= $form->field($model, 'slist_desc')->textarea(['rows' => 6])->label('Service Description') ?>
 
     
-	<?php echo $form->field($model, 'slist_type')->label('Type of Services')->dropDownList(['Immigrant Visa' => 'Immigrant Visa', 'Non Immigrant Visa' => 'Non Immigrant Visa', 'Special Visa' => 'Special Visa'], ['prompt'=>'Type of Visa...']); ?>
+	<?php echo $form->field($model, 'slist_type')->dropDownList(['Immigrant Visa' => 'Immigrant Visa', 'Non Immigrant Visa' => 'Non Immigrant Visa', 'Special Visa' => 'Special Visa'], ['prompt'=>'Select Visa Type...']); ?>
            
 	
    <!-- <?= $form->field($model, 'slist_dateadded')->textInput() ?> --->
