@@ -47,11 +47,11 @@ class ServiceList extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'slist_id' => 'Slist ID',
-            'slist_name' => 'Slist Name',
-            'slist_desc' => 'Slist Desc',
-            'slist_type' => 'Slist Type',
-            'slist_dateadded' => 'Slist Dateadded',
+            'slist_id' => 'Service ID',
+            'slist_name' => 'Service Name',
+            'slist_desc' => 'Service Desc',
+            'slist_type' => 'Service Type',
+            'slist_dateadded' => 'Service Dateadded',
         ];
     }
 
