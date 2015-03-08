@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\UserMainSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'User Mains';
+$this->title = 'User';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-main-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create User Main', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Add New User', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,17 +25,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            // 'email:email',
+            'email:email',
+            'user_firstname',
+            'user_lastname',
+            'created_at',
+            'user_type',
+            //'id',
+            //'auth_key',
+            // 'password_hash',
+            //'password_reset_token',
             // 'status',
-            // 'created_at',
             // 'updated_at',
-            // 'user_lastname',
-            // 'user_firstname',
             // 'user_midname',
             // 'user_housenum',
             // 'user_street',
@@ -48,7 +49,6 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'user_companycontact',
             // 'user_birthdate',
             // 'user_age',
-            // 'user_type',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\UserMain */
 
-$this->title = 'Update User Main: ' . ' ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'User Mains', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->title = 'Update User: ' . ' ' . $model->username;
+$this->params['breadcrumbs'][] = ['label' => 'User', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->username, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="user-main-update">
