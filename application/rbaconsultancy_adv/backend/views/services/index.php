@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\ServicesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Services';
+$this->title = 'Visa Transactions';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="services-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Services', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Visa Transactions', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,11 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'service_id',
-            'user_id',
-            'slist_id',
-            'service_dateapplied',
-            'service_status',
+            ['label' => 'Transaction Code', 'attribute' => 'service_id'],
+            ['label' => 'Acquired by', 'attribute' => 'user.username'],
+            ['label' => 'Service', 'attribute' => 'servicelist.slist_name'],
+            ['label' => 'Date Applied', 'attribute' => 'service_dateapplied'],
+            ['label' => 'Status', 'attribute' => 'service_status'],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
