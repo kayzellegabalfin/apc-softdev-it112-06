@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\User;
+use common\models\UserMain;
 
 /**
- * UserSearch represents the model behind the search form about `common\models\User`.
+ * UserMainSearch represents the model behind the search form about `common\models\UserMain`.
  */
-class UserSearch extends User
+class UserMainSearch extends UserMain
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class UserSearch extends User
      */
     public function search($params)
     {
-        $query = User::find();
+        $query = UserMain::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
