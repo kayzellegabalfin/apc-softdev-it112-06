@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Servicelist */
 
-$this->title = $model->slist_id;
-$this->params['breadcrumbs'][] = ['label' => 'Servicelists', 'url' => ['index']];
+$this->title = $model->slist_name;
+$this->params['breadcrumbs'][] = ['label' => 'Service list', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="servicelist-view">

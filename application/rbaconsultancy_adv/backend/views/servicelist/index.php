@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\ServicelistSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Servicelists';
+$this->title = 'Service List';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="servicelist-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Servicelist', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Service', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'slist_id',
+            //'slist_id',
 			['attribute' => 'slist_name', 'label' => 'Service Name'],
 			['attribute' => 'slist_desc', 'label' => 'Service Description'],
 			['attribute' => 'slist_type', 'label' => 'Service Type'],
