@@ -33,8 +33,8 @@ class RequirementsPerService extends \yii\db\ActiveRecord
     {
         return [
             [['rps_id', 'rps_name', 'slist_id', 'rlist_id'], 'required'],
-            [['rps_id', 'slist_id', 'rlist_id'], 'integer'],
-            [['rps_name'], 'string']
+            [['rlist_id'], 'integer'],
+            [['rps_id', 'slist_id','rps_name'], 'string']
         ];
     }
 

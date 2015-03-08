@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\models\servicelist;
+use common\models\requirementslist;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\RequirementsPerServiceSearch */
@@ -27,9 +29,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'rps_id',
 			['attribute' => 'rps_name', 'label' => 'Requirements Per Service Name Name'],
-			['attribute' => 'slist_name', 'label' => 'Services Name'],
-			['attribute' => 'rlist_name', 'label' => 'Requirements Name'],
-            
+			// ['attribute' => 'slist_name', 'label' => 'Services Name'],
+			[
+		              'attribute'=>'slist_id', 'label' => 'Services Name',
+		              'value'=>'servicelist.slist_name',
+	             ],
+				 
+		//	['attribute' => 'rlist_name', 'label' => 'Requirements Name'],
+            [
+		              'attribute'=>'rlist_id', 'label' => 'Requirements Name',
+		              'value'=>'requirementslist.rlist_name',
+	             ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
