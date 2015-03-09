@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\RequirementsList */
 
-$this->title = 'Update Requirements List: ' . ' ' . $model->rlist_id;
+$this->title = 'Update Requirements List: ' . ' ' . $model->rlist_name;
 $this->params['breadcrumbs'][] = ['label' => 'Requirements Lists', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->rlist_id, 'url' => ['view', 'id' => $model->rlist_id]];
+$this->params['breadcrumbs'][] = ['label' => $model->rlist_name, 'url' => ['view', 'id' => $model->rlist_id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="requirements-list-update">

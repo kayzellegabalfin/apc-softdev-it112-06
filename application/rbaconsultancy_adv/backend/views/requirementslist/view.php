@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\RequirementsList */
 
-$this->title = $model->rlist_id;
+$this->title = $model->rlist_name;
 $this->params['breadcrumbs'][] = ['label' => 'Requirements Lists', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
