@@ -14,7 +14,7 @@ use Yii;
  * @property string $slist_dateadded
  *
  * @property PriceList[] $priceLists
- * @property RequirementsPerService[] $requirementsPerServices
+ * @property RequirementsList[] $requirementsLists
  * @property Services[] $services
  */
 class ServiceList extends \yii\db\ActiveRecord
@@ -33,11 +33,11 @@ class ServiceList extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['slist_id', 'slist_name', 'slist_type'], 'required'],
+            [['slist_name', 'slist_type'], 'required'],
             [['slist_id'], 'integer'],
             [['slist_name'], 'string', 'max' => 255],
             [['slist_desc'], 'string'],
-            [['slist_dateadded'], 'safe'],
+            [['slist_id','slist_dateadded'], 'safe'],
             [['slist_type'], 'string', 'max' => 45]
         ];
     }
@@ -67,9 +67,9 @@ class ServiceList extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRequirementsPerServices()
+    public function getRequirementsList()
     {
-        return $this->hasMany(RequirementsPerService::className(), ['slist_id' => 'slist_id']);
+        return $this->hasMany(RequirementsList::className(), ['slist_id' => 'slist_id']);
     }
 
     /**
