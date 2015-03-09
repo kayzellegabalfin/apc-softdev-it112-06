@@ -46,7 +46,6 @@ abstract class Schema extends Object
     const TYPE_INTEGER = 'integer';
     const TYPE_BIGINT = 'bigint';
     const TYPE_FLOAT = 'float';
-    const TYPE_DOUBLE = 'double';
     const TYPE_DECIMAL = 'decimal';
     const TYPE_DATETIME = 'datetime';
     const TYPE_TIMESTAMP = 'timestamp';
@@ -494,7 +493,6 @@ abstract class Schema extends Object
             'bigint' => 'integer',
             'boolean' => 'boolean',
             'float' => 'double',
-            'double' => 'double',
             'binary' => 'resource',
         ];
         if (isset($typeMap[$column->type])) {

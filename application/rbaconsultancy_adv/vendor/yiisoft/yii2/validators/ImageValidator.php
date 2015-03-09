@@ -29,25 +29,25 @@ class ImageValidator extends FileValidator
     /**
      * @var integer the minimum width in pixels.
      * Defaults to null, meaning no limit.
-     * @see underWidth for the customized message used when image width is too small.
+     * @see underWidth
      */
     public $minWidth;
     /**
      * @var integer the maximum width in pixels.
      * Defaults to null, meaning no limit.
-     * @see overWidth for the customized message used when image width is too big.
+     * @see overWidth
      */
     public $maxWidth;
     /**
      * @var integer the minimum height in pixels.
      * Defaults to null, meaning no limit.
-     * @see underHeight for the customized message used when image height is too small.
+     * @see underHeight
      */
     public $minHeight;
     /**
      * @var integer the maximum width in pixels.
      * Defaults to null, meaning no limit.
-     * @see overWidth for the customized message used when image height is too big.
+     * @see overWidth
      */
     public $maxHeight;
     /**

@@ -769,22 +769,10 @@ class BaseConsole
      */
     public static function confirm($message, $default = false)
     {
-        while (true) {
-            static::stdout($message . ' (yes|no) [' . ($default ? 'yes' : 'no') . ']:');
-            $input = trim(static::stdin());
+        static::stdout($message . ' (yes|no) [' . ($default ? 'yes' : 'no') . ']:');
+        $input = trim(static::stdin());
 
-            if (empty($input)) {
-                return $default;
-            }
-
-            if (!strcasecmp ($input, 'y') || !strcasecmp ($input, 'yes') ) {
-                return true;
-            }
-
-            if (!strcasecmp ($input, 'n') || !strcasecmp ($input, 'no') ) {
-                return false;
-            }
-        }
+        return empty($input) ? $default : !strncasecmp($input, 'y', 1);
     }
 
     /**

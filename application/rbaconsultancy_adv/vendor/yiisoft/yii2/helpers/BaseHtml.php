@@ -10,7 +10,6 @@ namespace yii\helpers;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\db\ActiveRecordInterface;
-use yii\validators\StringValidator;
 use yii\web\Request;
 use yii\base\Model;
 
@@ -80,14 +79,6 @@ class BaseHtml
         'rel',
         'media',
     ];
-
-    /**
-     * @var array list of tag attributes that should be specially handled when their values are of array type.
-     * In particular, if the value of the `data` attribute is `['name' => 'xyz', 'age' => 13]`, two attributes
-     * will be generated instead of one: `data-name="xyz" data-age="13"`.
-     * @since 2.0.3
-     */
-    public static $dataAttributes = ['data', 'data-ng', 'ng'];
 
 
     /**
@@ -491,9 +482,7 @@ class BaseHtml
      */
     public static function input($type, $name = null, $value = null, $options = [])
     {
-        if (!isset($options['type'])) {
-            $options['type'] = $type;
-        }
+        $options['type'] = $type;
         $options['name'] = $name;
         $options['value'] = $value === null ? null : (string) $value;
         return static::tag('input', '', $options);
@@ -737,9 +726,7 @@ class BaseHtml
      * - groups: array, the attributes for the optgroup tags. The structure of this is similar to that of 'options',
      *   except that the array keys represent the optgroup labels specified in $items.
      * - encodeSpaces: bool, whether to encode spaces in option prompt and option value with `&nbsp;` character.
-     *   Defaults to false.
-     * - encode: bool, whether to encode option prompt and option value characters.
-     *   Defaults to `true`. This option is available since 2.0.3.
+     *   Defaults to `false`.
      *
      * The rest of the options will be rendered as the attributes of the resulting tag. The values will
      * be HTML-encoded using [[encode()]]. If a value is null, the corresponding attribute will not be rendered.
@@ -789,9 +776,7 @@ class BaseHtml
      *   When this attribute is set, a hidden field will be generated so that if no option is selected in multiple
      *   mode, we can still obtain the posted unselect value.
      * - encodeSpaces: bool, whether to encode spaces in option prompt and option value with `&nbsp;` character.
-     *   Defaults to false.
-     * - encode: bool, whether to encode option prompt and option value characters.
-     *   Defaults to `true`. This option is available since 2.0.3.
+     *   Defaults to `false`.
      *
      * The rest of the options will be rendered as the attributes of the resulting tag. The values will
      * be HTML-encoded using [[encode()]]. If a value is null, the corresponding attribute will not be rendered.
@@ -1168,26 +1153,10 @@ class BaseHtml
      * @param array $options the tag options in terms of name-value pairs. These will be rendered as
      * the attributes of the resulting tag. The values will be HTML-encoded using [[encode()]].
      * See [[renderTagAttributes()]] for details on how attributes are being rendered.
-     * The following special options are recognized:
-     *
-     * - maxlength: integer|boolean, when `maxlength` is set true and the model attribute is validated
-     *   by a string validator, the `maxlength` option will take the value of [[\yii\validators\StringValidator::max]].
-     *   This is available since version 2.0.3.
-     *
      * @return string the generated input tag
      */
     public static function activeTextInput($model, $attribute, $options = [])
     {
-        if (isset($options['maxlength']) && $options['maxlength'] === true) {
-            unset($options['maxlength']);
-            $attrName = static::getAttributeName($attribute);
-            foreach ($model->getActiveValidators($attrName) as $validator) {
-                if ($validator instanceof StringValidator && $validator->max !== null) {
-                    $options['maxlength'] = $validator->max;
-                    break;
-                }
-            }
-        }
         return static::activeInput('text', $model, $attribute, $options);
     }
 
@@ -1395,9 +1364,7 @@ class BaseHtml
      * - groups: array, the attributes for the optgroup tags. The structure of this is similar to that of 'options',
      *   except that the array keys represent the optgroup labels specified in $items.
      * - encodeSpaces: bool, whether to encode spaces in option prompt and option value with `&nbsp;` character.
-     *   Defaults to false.
-     * - encode: bool, whether to encode option prompt and option value characters.
-     *   Defaults to `true`. This option is available since 2.0.3.
+     *   Defaults to `false`.
      *
      * The rest of the options will be rendered as the attributes of the resulting tag. The values will
      * be HTML-encoded using [[encode()]]. If a value is null, the corresponding attribute will not be rendered.
@@ -1447,9 +1414,7 @@ class BaseHtml
      *   When this attribute is set, a hidden field will be generated so that if no option is selected in multiple
      *   mode, we can still obtain the posted unselect value.
      * - encodeSpaces: bool, whether to encode spaces in option prompt and option value with `&nbsp;` character.
-     *   Defaults to false.
-     * - encode: bool, whether to encode option prompt and option value characters.
-     *   Defaults to `true`. This option is available since 2.0.3.
+     *   Defaults to `false`.
      *
      * The rest of the options will be rendered as the attributes of the resulting tag. The values will
      * be HTML-encoded using [[encode()]]. If a value is null, the corresponding attribute will not be rendered.
@@ -1584,12 +1549,8 @@ class BaseHtml
     {
         $lines = [];
         $encodeSpaces = ArrayHelper::remove($tagOptions, 'encodeSpaces', false);
-        $encode = ArrayHelper::remove($tagOptions, 'encode', true);
         if (isset($tagOptions['prompt'])) {
-            $prompt = $encode ? static::encode($tagOptions['prompt']) : $tagOptions['prompt'];
-            if ($encodeSpaces) {
-                $prompt = str_replace(' ', '&nbsp;', $prompt);
-            }
+            $prompt = $encodeSpaces ? str_replace(' ', '&nbsp;', static::encode($tagOptions['prompt'])) : static::encode($tagOptions['prompt']);
             $lines[] = static::tag('option', $prompt, ['value' => '']);
         }
 
@@ -1597,13 +1558,12 @@ class BaseHtml
         $groups = isset($tagOptions['groups']) ? $tagOptions['groups'] : [];
         unset($tagOptions['prompt'], $tagOptions['options'], $tagOptions['groups']);
         $options['encodeSpaces'] = ArrayHelper::getValue($options, 'encodeSpaces', $encodeSpaces);
-        $options['encode'] = ArrayHelper::getValue($options, 'encode', $encode);
 
         foreach ($items as $key => $value) {
             if (is_array($value)) {
                 $groupAttrs = isset($groups[$key]) ? $groups[$key] : [];
                 $groupAttrs['label'] = $key;
-                $attrs = ['options' => $options, 'groups' => $groups, 'encodeSpaces' => $encodeSpaces, 'encode' => $encode];
+                $attrs = ['options' => $options, 'groups' => $groups, 'encodeSpaces' => $encodeSpaces];
                 $content = static::renderSelectOptions($selection, $value, $attrs);
                 $lines[] = static::tag('optgroup', "\n" . $content . "\n", $groupAttrs);
             } else {
@@ -1612,11 +1572,7 @@ class BaseHtml
                 $attrs['selected'] = $selection !== null &&
                         (!is_array($selection) && !strcmp($key, $selection)
                         || is_array($selection) && in_array($key, $selection));
-                $text = $encode ? static::encode($value) : $value;
-                if ($encodeSpaces) {
-                    $text = str_replace(' ', '&nbsp;', $text);
-                }
-                $lines[] = static::tag('option', $text, $attrs);
+                $lines[] = static::tag('option', ($encodeSpaces ? str_replace(' ', '&nbsp;', static::encode($value)) : static::encode($value)), $attrs);
             }
         }
 
@@ -1663,17 +1619,13 @@ class BaseHtml
                 if ($value) {
                     $html .= " $name";
                 }
-            } elseif (is_array($value)) {
-                if (in_array($name, static::$dataAttributes)) {
-                    foreach ($value as $n => $v) {
-                        if (is_array($v)) {
-                            $html .= " $name-$n='" . Json::encode($v, JSON_HEX_APOS) . "'";
-                        } else {
-                            $html .= " $name-$n=\"" . static::encode($v) . '"';
-                        }
+            } elseif (is_array($value) && $name === 'data') {
+                foreach ($value as $n => $v) {
+                    if (is_array($v)) {
+                        $html .= " $name-$n='" . Json::encode($v, JSON_HEX_APOS) . "'";
+                    } else {
+                        $html .= " $name-$n=\"" . static::encode($v) . '"';
                     }
-                } else {
-                    $html .= " $name='" . Json::encode($value, JSON_HEX_APOS) . "'";
                 }
             } elseif ($value !== null) {
                 $html .= " $name=\"" . static::encode($value) . '"';
@@ -1957,6 +1909,6 @@ class BaseHtml
     public static function getInputId($model, $attribute)
     {
         $name = strtolower(static::getInputName($model, $attribute));
-        return str_replace(['[]', '][', '[', ']', ' ', '.'], ['', '-', '-', '', '-', '-'], $name);
+        return str_replace(['[]', '][', '[', ']', ' '], ['', '-', '-', '', '-'], $name);
     }
 }

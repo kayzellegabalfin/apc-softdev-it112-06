@@ -115,8 +115,8 @@ class Nav extends Widget
      */
     public function run()
     {
+        echo $this->renderItems();
         BootstrapAsset::register($this->getView());
-        return $this->renderItems();
     }
 
     /**
@@ -127,6 +127,7 @@ class Nav extends Widget
         $items = [];
         foreach ($this->items as $i => $item) {
             if (isset($item['visible']) && !$item['visible']) {
+                unset($items[$i]);
                 continue;
             }
             $items[] = $this->renderItem($item);

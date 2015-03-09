@@ -209,7 +209,7 @@ class Logger extends Component
             $matched = empty($categories);
             foreach ($categories as $category) {
                 $prefix = rtrim($category, '*');
-                if (($timing['category'] === $category || $prefix !== $category) && strpos($timing['category'], $prefix) === 0) {
+                if (strpos($timing['category'], $prefix) === 0 && ($timing['category'] === $category || $prefix !== $category)) {
                     $matched = true;
                     break;
                 }
@@ -219,7 +219,7 @@ class Logger extends Component
                 foreach ($excludeCategories as $category) {
                     $prefix = rtrim($category, '*');
                     foreach ($timings as $i => $timing) {
-                        if (($timing['category'] === $category || $prefix !== $category) && strpos($timing['category'], $prefix) === 0) {
+                        if (strpos($timing['category'], $prefix) === 0 && ($timing['category'] === $category || $prefix !== $category)) {
                             $matched = false;
                             break;
                         }

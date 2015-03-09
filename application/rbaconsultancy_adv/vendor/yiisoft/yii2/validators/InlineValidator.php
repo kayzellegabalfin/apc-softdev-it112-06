@@ -26,9 +26,7 @@ class InlineValidator extends Validator
 {
     /**
      * @var string|\Closure an anonymous function or the name of a model class method that will be
-     * called to perform the actual validation. The signature of the method should be like the following,
-     * where `$attribute` is the name of the attribute to be validated, and `$params` contains the value
-     * of [[params]] that you specify when declaring the inline validation rule:
+     * called to perform the actual validation. The signature of the method should be like the following:
      *
      * ~~~
      * function foo($attribute, $params)
@@ -36,7 +34,7 @@ class InlineValidator extends Validator
      */
     public $method;
     /**
-     * @var mixed additional parameters that are passed to the validation method
+     * @var array additional parameters that are passed to the validation method
      */
     public $params;
     /**

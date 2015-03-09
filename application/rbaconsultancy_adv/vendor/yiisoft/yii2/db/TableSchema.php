@@ -87,7 +87,9 @@ class TableSchema extends Object
      */
     public function fixPrimaryKey($keys)
     {
-        $keys = (array)$keys;
+        if (!is_array($keys)) {
+            $keys = [$keys];
+        }
         $this->primaryKey = $keys;
         foreach ($this->columns as $column) {
             $column->isPrimaryKey = false;

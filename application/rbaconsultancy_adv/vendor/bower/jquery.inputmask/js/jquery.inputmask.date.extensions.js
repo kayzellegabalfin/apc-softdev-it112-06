@@ -75,7 +75,7 @@ Optional extensions on the jquery.inputmask base
 
                 return currentyear;
             },
-            onKeyDown: function (e, buffer, caretPos, opts) {
+            onKeyUp: function (e, buffer, opts) {
                 var $input = $(this);
                 if (e.ctrlKey && e.keyCode == $.inputmask.keyCode.RIGHT) {
                     var today = new Date();
@@ -114,16 +114,9 @@ Optional extensions on the jquery.inputmask base
                     cardinality: 2,
                     prevalidator: [{
                         validator: function (chrs, maskset, pos, strict, opts) {
-                            var pchrs = chrs;
-                            if (!isNaN(maskset.buffer[pos + 1])) pchrs += maskset.buffer[pos + 1];
-                            var isValid = pchrs.length == 1 ? opts.regex.val1pre.test(pchrs) : opts.regex.val1.test(pchrs);
+                            if (!isNaN(maskset.buffer[pos + 1])) chrs += maskset.buffer[pos + 1];
+                            var isValid = chrs.length == 1 ? opts.regex.val1pre.test(chrs) : opts.regex.val1.test(chrs);
                             if (!strict && !isValid) {
-                                isValid = opts.regex.val1.test(chrs + "0");
-                                if (isValid) {
-                                    maskset.buffer[pos] = chrs;
-                                    maskset.buffer[++pos] = "0";
-                                    return { "pos": pos, "c": "0" };
-                                }
                                 isValid = opts.regex.val1.test("0" + chrs);
                                 if (isValid) {
                                     maskset.buffer[pos] = "0";
@@ -291,7 +284,7 @@ Optional extensions on the jquery.inputmask base
                 val1: new RegExp("0[1-9]|1[012]") //month
             },
             leapday: "02/29/",
-            onKeyDown: function (e, buffer, caretPos, opts) {
+            onKeyUp: function (e, buffer, opts) {
                 var $input = $(this);
                 if (e.ctrlKey && e.keyCode == $.inputmask.keyCode.RIGHT) {
                     var today = new Date();
@@ -305,7 +298,7 @@ Optional extensions on the jquery.inputmask base
             placeholder: "yyyy/mm/dd",
             alias: "mm/dd/yyyy",
             leapday: "/02/29",
-            onKeyDown: function (e, buffer, caretPos, opts) {
+            onKeyUp: function (e, buffer, opts) {
                 var $input = $(this);
                 if (e.ctrlKey && e.keyCode == $.inputmask.keyCode.RIGHT) {
                     var today = new Date();

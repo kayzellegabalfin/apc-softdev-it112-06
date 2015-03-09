@@ -170,8 +170,8 @@ class CompareValidator extends Validator
     protected function compareValues($operator, $type, $value, $compareValue)
     {
         if ($type === 'number') {
-            $value = (float) $value;
-            $compareValue = (float) $compareValue;
+            $value = floatval($value);
+            $compareValue = floatval($compareValue);
         } else {
             $value = (string) $value;
             $compareValue = (string) $compareValue;

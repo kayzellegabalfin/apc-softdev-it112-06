@@ -148,7 +148,7 @@
         validationDelay: 500,
         // whether to enable AJAX-based validation.
         enableAjaxValidation: false,
-        // function (attribute, value, messages, deferred, $form), the client-side validation function.
+        // function (attribute, value, messages), the client-side validation function.
         validate: undefined,
         // status of the input field, 0: empty, not entered before, 1: validated, 2: pending validation, 3: validating
         status: 0,
@@ -227,14 +227,6 @@
             return attribute;
         },
 
-        // manually trigger the validation of the attribute with the specified ID
-        validateAttribute: function (id) {
-            var attribute = methods.find.call(this, id);
-            if (attribute != undefined) {
-                validateAttribute($(this), attribute, true);
-            }
-        },
-
         // find an attribute config based on the specified attribute ID
         find: function (id) {
             var attributes = $(this).data('yiiActiveForm').attributes,
@@ -259,7 +251,6 @@
             return this.data('yiiActiveForm');
         },
 
-        // validate all applicable inputs in the form
         validate: function () {
             var $form = $(this),
                 data = $form.data('yiiActiveForm'),
@@ -291,7 +282,7 @@
                     $form.trigger(event, [this, msg, deferreds]);
                     if (event.result !== false) {
                         if (this.validate) {
-                            this.validate(this, getValue($form, this), msg, deferreds, $form);
+                            this.validate(this, getValue($form, this), msg, deferreds);
                         }
                         if (this.enableAjaxValidation) {
                             needAjaxValidation = true;
@@ -404,7 +395,7 @@
     var watchAttribute = function ($form, attribute) {
         var $input = findInput($form, attribute);
         if (attribute.validateOnChange) {
-            $input.on('change.yiiActiveForm', function () {
+            $input.on('change.yiiActiveForm',function () {
                 validateAttribute($form, attribute, false);
             });
         }

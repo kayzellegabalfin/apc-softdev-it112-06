@@ -29,12 +29,10 @@ class NumberValidator extends Validator
     public $integerOnly = false;
     /**
      * @var integer|float upper limit of the number. Defaults to null, meaning no upper limit.
-     * @see tooBig for the customized message used when the number is too big.
      */
     public $max;
     /**
      * @var integer|float lower limit of the number. Defaults to null, meaning no lower limit.
-     * @see tooSmall for the customized message used when the number is too small.
      */
     public $min;
     /**

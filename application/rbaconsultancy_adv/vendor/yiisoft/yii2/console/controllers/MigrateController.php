@@ -8,9 +8,9 @@
 namespace yii\console\controllers;
 
 use Yii;
+use yii\console\Exception;
 use yii\db\Connection;
 use yii\db\Query;
-use yii\di\Instance;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Console;
 
@@ -64,9 +64,8 @@ class MigrateController extends BaseMigrateController
      */
     public $templateFile = '@yii/views/migration.php';
     /**
-     * @var Connection|array|string the DB connection object or the application component ID of the DB connection to use
-     * when applying migrations. Starting from version 2.0.3, this can also be a configuration array
-     * for creating the object.
+     * @var Connection|string the DB connection object or the application
+     * component ID of the DB connection.
      */
     public $db = 'db';
 
@@ -86,13 +85,19 @@ class MigrateController extends BaseMigrateController
      * This method is invoked right before an action is to be executed (after all possible filters.)
      * It checks the existence of the [[migrationPath]].
      * @param \yii\base\Action $action the action to be executed.
+     * @throws Exception if db component isn't configured
      * @return boolean whether the action should continue to be executed.
      */
     public function beforeAction($action)
     {
         if (parent::beforeAction($action)) {
             if ($action->id !== 'create') {
-                $this->db = Instance::ensure($this->db, Connection::className());
+                if (is_string($this->db)) {
+                    $this->db = Yii::$app->get($this->db);
+                }
+                if (!$this->db instanceof Connection) {
+                    throw new Exception("The 'db' option must refer to the application component ID of a DB connection.");
+                }
             }
             return true;
         } else {

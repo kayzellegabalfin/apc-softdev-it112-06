@@ -29,7 +29,7 @@ class FileValidator extends Validator
      * separated by space or comma (e.g. "gif, jpg").
      * Extension names are case-insensitive. Defaults to null, meaning all file name
      * extensions are allowed.
-     * @see wrongType for the customized message for wrong file type.
+     * @see wrongType
      */
     public $extensions;
     /**
@@ -43,13 +43,13 @@ class FileValidator extends Validator
      * separated by space or comma (e.g. "text/plain, image/png").
      * Mime type names are case-insensitive. Defaults to null, meaning all MIME types
      * are allowed.
-     * @see wrongMimeType for the customized message for wrong MIME type.
+     * @see wrongMimeType
      */
     public $mimeTypes;
     /**
      * @var integer the minimum number of bytes required for the uploaded file.
      * Defaults to null, meaning no limit.
-     * @see tooSmall for the customized message for a file that is too small.
+     * @see tooSmall
      */
     public $minSize;
     /**
@@ -57,14 +57,14 @@ class FileValidator extends Validator
      * Defaults to null, meaning no limit.
      * Note, the size limit is also affected by 'upload_max_filesize' INI setting
      * and the 'MAX_FILE_SIZE' hidden field value.
-     * @see tooBig for the customized message for a file that is too big.
+     * @see tooBig
      */
     public $maxSize;
     /**
      * @var integer the maximum file count the given attribute can hold.
      * It defaults to 1, meaning single file upload. By defining a higher number,
      * multiple uploads become possible.
-     * @see tooMany for the customized message when too many files are uploaded.
+     * @see tooMany
      */
     public $maxFiles = 1;
     /**

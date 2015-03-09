@@ -100,12 +100,14 @@ class ActiveRecord extends BaseActiveRecord
     /**
      * Loads default values from database table schema
      *
-     * You may call this method to load default values after creating a new instance:
+     * To enable loading defaults for every newly created record, you can add a call to this method to [[init()]]:
      *
      * ```php
-     * // class Customer extends \yii\db\ActiveRecord
-     * $customer = new Customer();
-     * $customer->loadDefaultValues();
+     * public function init()
+     * {
+     *     parent::init();
+     *     $this->loadDefaultValues();
+     * }
      * ```
      *
      * @param boolean $skipIfSet whether existing value should be preserved.
@@ -163,11 +165,12 @@ class ActiveRecord extends BaseActiveRecord
      * Finds ActiveRecord instance(s) by the given condition.
      * This method is internally called by [[findOne()]] and [[findAll()]].
      * @param mixed $condition please refer to [[findOne()]] for the explanation of this parameter
-     * @return ActiveQueryInterface the newly created [[ActiveQueryInterface|ActiveQuery]] instance. 
+     * @param boolean $one whether this method is called by [[findOne()]] or [[findAll()]]
+     * @return static|static[]
      * @throws InvalidConfigException if there is no primary key defined
      * @internal
      */
-    protected static function findByCondition($condition)
+    protected static function findByCondition($condition, $one)
     {
         $query = static::find();
 
@@ -185,7 +188,7 @@ class ActiveRecord extends BaseActiveRecord
             }
         }
 
-        return $query->andWhere($condition);
+        return $one ? $query->andWhere($condition)->one() : $query->andWhere($condition)->all();
     }
 
     /**
@@ -567,7 +570,7 @@ class ActiveRecord extends BaseActiveRecord
      * In the above step 1 and 3, events named [[EVENT_BEFORE_DELETE]] and [[EVENT_AFTER_DELETE]]
      * will be raised by the corresponding methods.
      *
-     * @return integer|false the number of rows deleted, or false if the deletion is unsuccessful for some reason.
+     * @return integer|boolean the number of rows deleted, or false if the deletion is unsuccessful for some reason.
      * Note that it is possible the number of rows deleted is 0, even though the deletion execution is successful.
      * @throws StaleObjectException if [[optimisticLock|optimistic locking]] is enabled and the data
      * being deleted is outdated.
@@ -596,7 +599,7 @@ class ActiveRecord extends BaseActiveRecord
 
     /**
      * Deletes an ActiveRecord without considering transaction.
-     * @return integer|false the number of rows deleted, or false if the deletion is unsuccessful for some reason.
+     * @return integer|boolean the number of rows deleted, or false if the deletion is unsuccessful for some reason.
      * Note that it is possible the number of rows deleted is 0, even though the deletion execution is successful.
      * @throws StaleObjectException
      */

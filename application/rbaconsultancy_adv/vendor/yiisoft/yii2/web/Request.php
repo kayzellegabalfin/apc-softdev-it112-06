@@ -416,7 +416,6 @@ class Request extends \yii\base\Request
 
     /**
      * Returns the named request body parameter value.
-     * If the parameter does not exist, the second parameter passed to this method will be returned.
      * @param string $name the parameter name
      * @param mixed $defaultValue the default parameter value if the parameter does not exist.
      * @return mixed the parameter value
@@ -493,8 +492,8 @@ class Request extends \yii\base\Request
 
     /**
      * Returns the named GET parameter value.
-     * If the GET parameter does not exist, the second parameter passed to this method will be returned.
-     * @param string $name the GET parameter name.
+     * If the GET parameter does not exist, the second parameter to this method will be returned.
+     * @param string $name the GET parameter name. If not specified, whole $_GET is returned.
      * @param mixed $defaultValue the default parameter value if the GET parameter does not exist.
      * @return mixed the GET parameter value
      * @see getBodyParam()
@@ -1166,7 +1165,7 @@ class Request extends \yii\base\Request
     public function getETags()
     {
         if (isset($_SERVER['HTTP_IF_NONE_MATCH'])) {
-            return preg_split('/[\s,]+/', str_replace('-gzip', '', $_SERVER['HTTP_IF_NONE_MATCH']), -1, PREG_SPLIT_NO_EMPTY);
+            return preg_split('/[\s,]+/', $_SERVER['HTTP_IF_NONE_MATCH'], -1, PREG_SPLIT_NO_EMPTY);
         } else {
             return [];
         }
@@ -1212,18 +1211,10 @@ class Request extends \yii\base\Request
                 throw new InvalidConfigException(get_class($this) . '::cookieValidationKey must be configured with a secret key.');
             }
             foreach ($_COOKIE as $name => $value) {
-                if (!is_string($value)) {
-                    continue;
-                }
-                $data = Yii::$app->getSecurity()->validateData($value, $this->cookieValidationKey);
-                if ($data === false) {
-                    continue;
-                }
-                $data = @unserialize($data);
-                if (is_array($data) && isset($data[0], $data[1]) && $data[0] === $name) {
+                if (is_string($value) && ($value = Yii::$app->getSecurity()->validateData($value, $this->cookieValidationKey)) !== false) {
                     $cookies[$name] = new Cookie([
                         'name' => $name,
-                        'value' => $data[1],
+                        'value' => @unserialize($value),
                         'expire'=> null
                     ]);
                 }
@@ -1291,8 +1282,10 @@ class Request extends \yii\base\Request
     {
         $token = Yii::$app->getSecurity()->generateRandomString();
         if ($this->enableCsrfCookie) {
-            $cookie = $this->createCsrfCookie($token);
-            Yii::$app->getResponse()->getCookies()->add($cookie);
+            $config = $this->csrfCookie;
+            $config['name'] = $this->csrfParam;
+            $config['value'] = $token;
+            Yii::$app->getResponse()->getCookies()->add(new Cookie($config));
         } else {
             Yii::$app->getSession()->set($this->csrfParam, $token);
         }
@@ -1331,15 +1324,14 @@ class Request extends \yii\base\Request
     /**
      * Creates a cookie with a randomly generated CSRF token.
      * Initial values specified in [[csrfCookie]] will be applied to the generated cookie.
-     * @param string $token the CSRF token
      * @return Cookie the generated cookie
      * @see enableCsrfValidation
      */
-    protected function createCsrfCookie($token)
+    protected function createCsrfCookie()
     {
         $options = $this->csrfCookie;
         $options['name'] = $this->csrfParam;
-        $options['value'] = $token;
+        $options['value'] = Yii::$app->getSecurity()->generateRandomString();
         return new Cookie($options);
     }
 

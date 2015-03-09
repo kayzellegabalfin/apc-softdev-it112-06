@@ -74,7 +74,7 @@ class AssetController extends Controller
      * For example:
      *
      * ~~~
-     * 'allShared' => [
+     * 'app\config\AllShared' => [
      *     'js' => 'js/all-shared-{hash}.js',
      *     'css' => 'css/all-shared-{hash}.css',
      *     'depends' => [
@@ -83,7 +83,7 @@ class AssetController extends Controller
      *         'app\assets\SharedAsset',
      *     ],
      * ],
-     * 'allBackEnd' => [
+     * 'app\config\AllBackEnd' => [
      *     'js' => 'js/all-{hash}.js',
      *     'css' => 'css/all-{hash}.css',
      *     'depends' => [
@@ -91,7 +91,7 @@ class AssetController extends Controller
      *         'app\assets\AdminAsset'
      *     ],
      * ],
-     * 'allFrontEnd' => [
+     * 'app\config\AllFrontEnd' => [
      *     'js' => 'js/all-{hash}.js',
      *     'css' => 'css/all-{hash}.css',
      *     'depends' => [], // Include all remaining assets
@@ -611,9 +611,6 @@ EOD;
             $inputUrl = $matches[1];
 
             if (strpos($inputUrl, '/') === 0 || preg_match('/^https?:\/\//is', $inputUrl) || preg_match('/^data:/is', $inputUrl)) {
-                return $fullMatch;
-            }
-            if ($inputFileRelativePathParts === $outputFileRelativePathParts) {
                 return $fullMatch;
             }
 

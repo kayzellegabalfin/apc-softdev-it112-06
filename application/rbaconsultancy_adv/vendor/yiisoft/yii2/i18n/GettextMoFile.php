@@ -109,7 +109,8 @@ class GettextMoFile extends GettextFile
             $separatorPosition = strpos($id, chr(4));
 
 
-            if ((!$context && $separatorPosition === false) || ($context && $separatorPosition !== false && strncmp($id, $context, $separatorPosition) === 0)) {
+            if (($context && $separatorPosition !== false && strncmp($id, $context, $separatorPosition) === 0) ||
+                (!$context && $separatorPosition === false)) {
                 if ($separatorPosition !== false) {
                     $id = substr($id, $separatorPosition+1);
                 }
