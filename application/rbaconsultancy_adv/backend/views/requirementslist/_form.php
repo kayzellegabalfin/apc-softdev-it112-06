@@ -14,13 +14,13 @@ use common\models\ServiceList;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'rlist_name')->textInput(['maxlength' => 255]) ?>
+    <?= $form->field($model, 'rlist_name')->textInput(['maxlength' => 255])->label('Requirement Name') ?>
 
-    <?= $form->field($model, 'rlist_desc')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'rlist_desc')->textarea(['rows' => 6])->label('Requirement Description') ?>
 
-  <!---  <?= $form->field($model, 'rlist_dateadded')->textInput() ?> --->
+  <!---  <?= $form->field($model, 'rlist_dateadded')->textInput()->label('Date Added') ?> --->
 
-   <!--- <?= $form->field($model, 'slist_id')->textInput() ?> --->
+   <!--- <?= $form->field($model, 'slist_id')->textInput()->label('Service Name') ?> --->
 	
 	<?php
 	        $ServiceList=ServiceList::find()->all();
@@ -29,7 +29,7 @@ use common\models\ServiceList;
 	
 	        echo $form->field($model, 'slist_id')->dropDownList(
 	                                $listData,
-	                                ['prompt'=>'Select Service...'])->label('Service') ;
+	                                ['prompt'=>'Select Service...'])->label('Service Name') ;
 	    ?>
 
     <div class="form-group">
