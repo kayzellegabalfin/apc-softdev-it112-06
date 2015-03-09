@@ -65,7 +65,8 @@ class ServicesSearch extends Services
         ]);
 
         $query->andFilterWhere(['like', 'service_status', $this->service_status])
-                ->andFilterWhere(['like', 'user.username', $this->user_id]);
+                ->andFilterWhere(['like', 'user.username', $this->user_id])
+                ->andFilterWhere(['like', 'servicelist.slist_name', $this->slist_id]);
 
         return $dataProvider;
     }
