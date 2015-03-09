@@ -30,10 +30,10 @@ class RequirementsList extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['rlist_id', 'rlist_name'], 'required'],
+            [['rlist_name'], 'required'],
             [['rlist_id'], 'integer'],
             [['rlist_desc'], 'string'],
-            [['rlist_dateadded'], 'safe'],
+            [['rlist_id','rlist_dateadded'], 'safe'],
             [['rlist_name'], 'string', 'max' => 50]
         ];
     }
