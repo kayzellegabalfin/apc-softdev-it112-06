@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\RequirementsPerUser */
+/* @var $model common\models\RequirementsPerUser */
 
 $this->title = 'Update Requirements Per User: ' . ' ' . $model->rpu_id;
 $this->params['breadcrumbs'][] = ['label' => 'Requirements Per Users', 'url' => ['index']];

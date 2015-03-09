@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\RequirementsList */
+/* @var $model common\models\RequirementsList */
 
 $this->title = 'Update Requirements List: ' . ' ' . $model->rlist_id;
 $this->params['breadcrumbs'][] = ['label' => 'Requirements Lists', 'url' => ['index']];

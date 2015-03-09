@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\RequirementsPerUser */
+/* @var $model common\models\RequirementsPerUser */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -12,15 +12,13 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'rpu_id')->textInput() ?>
-
     <?= $form->field($model, 'rpu_status')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'rpu_datefilesubmitted')->textInput() ?>
 
     <?= $form->field($model, 'rpu_fileuploaded')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'rps_id')->textInput() ?>
+    <?= $form->field($model, 'rlist_id')->textInput() ?>
 
     <?= $form->field($model, 'user_id')->textInput() ?>
 

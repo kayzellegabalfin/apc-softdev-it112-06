@@ -18,7 +18,7 @@ class RequirementsPerUserSearch extends RequirementsPerUser
     public function rules()
     {
         return [
-            [['rpu_id', 'rps_id', 'user_id'], 'integer'],
+            [['rpu_id', 'rlist_id', 'user_id'], 'integer'],
             [['rpu_status', 'rpu_datefilesubmitted', 'rpu_fileuploaded'], 'safe'],
         ];
     }
@@ -58,7 +58,7 @@ class RequirementsPerUserSearch extends RequirementsPerUser
         $query->andFilterWhere([
             'rpu_id' => $this->rpu_id,
             'rpu_datefilesubmitted' => $this->rpu_datefilesubmitted,
-            'rps_id' => $this->rps_id,
+            'rlist_id' => $this->rlist_id,
             'user_id' => $this->user_id,
         ]);
 

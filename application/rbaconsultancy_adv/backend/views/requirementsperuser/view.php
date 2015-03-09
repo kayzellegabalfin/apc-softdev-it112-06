@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\RequirementsPerUser */
+/* @var $model common\models\RequirementsPerUser */
 
 $this->title = $model->rpu_id;
 $this->params['breadcrumbs'][] = ['label' => 'Requirements Per Users', 'url' => ['index']];
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'rpu_status',
             'rpu_datefilesubmitted',
             'rpu_fileuploaded',
-            'rps_id',
+            'rlist_id',
             'user_id',
         ],
     ]) ?>

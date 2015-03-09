@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\RequirementsPerUserSearch */
+/* @var $searchModel common\models\RequirementsPerUserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Requirements Per Users';
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'rpu_status',
             'rpu_datefilesubmitted',
             'rpu_fileuploaded',
-            'rps_id',
+            'rlist_id',
             // 'user_id',
 
             ['class' => 'yii\grid\ActionColumn'],

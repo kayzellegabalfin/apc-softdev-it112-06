@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\RequirementsListSearch */
+/* @var $searchModel common\models\RequirementsListSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Requirements Lists';
@@ -29,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'rlist_name',
             'rlist_desc:ntext',
             'rlist_dateadded',
+            'slist_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

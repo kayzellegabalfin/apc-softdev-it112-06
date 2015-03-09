@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\RequirementsListSearch */
+/* @var $model common\models\RequirementsListSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -22,6 +22,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'rlist_desc') ?>
 
     <?= $form->field($model, 'rlist_dateadded') ?>
+
+    <?= $form->field($model, 'slist_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

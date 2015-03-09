@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\RequirementsList */
+/* @var $model common\models\RequirementsList */
 
 $this->title = $model->rlist_id;
 $this->params['breadcrumbs'][] = ['label' => 'Requirements Lists', 'url' => ['index']];
@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'rlist_name',
             'rlist_desc:ntext',
             'rlist_dateadded',
+            'slist_id',
         ],
     ]) ?>
 

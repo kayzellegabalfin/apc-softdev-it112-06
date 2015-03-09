@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\RequirementsPerUserSearch */
+/* @var $model common\models\RequirementsPerUserSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'rpu_fileuploaded') ?>
 
-    <?= $form->field($model, 'rps_id') ?>
+    <?= $form->field($model, 'rlist_id') ?>
 
     <?php // echo $form->field($model, 'user_id') ?>
 

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\RequirementsList */
+/* @var $model common\models\RequirementsList */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -12,13 +12,13 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <!-- <?= $form->field($model, 'rlist_id')->textInput() ?> -->
-
-    <?= $form->field($model, 'rlist_name')->textInput(['maxlength' => 50]) ?>
+    <?= $form->field($model, 'rlist_name')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'rlist_desc')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'rlist_dateadded')->textInput() ?>
+
+    <?= $form->field($model, 'slist_id')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
