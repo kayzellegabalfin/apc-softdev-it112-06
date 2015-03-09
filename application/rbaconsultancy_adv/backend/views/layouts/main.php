@@ -25,7 +25,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => 'RBA Consultancy and General Services',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -40,10 +40,10 @@ AppAsset::register($this);
             } else {
                 $menuItems = [
                     ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'Database Tables', 'items' => [
+                    ['label' => 'Administration', 'items' => [
                         ['label' => 'Users', 'url' => ['/user/index']],
+                        ['label' => 'Visa Transactions', 'url' => ['/services/index']],
                         ['label' => 'Services List', 'url' => ['/servicelist/index']],
-                        ['label' => 'Services', 'url' => ['/services/index']],
                         ['label' => 'Requirements List', 'url' => ['/requirementslist/index']],
                         ['label' => 'Requirements Per User', 'url' => ['/requirementsperuser/index']],
                         ['label' => 'Price List', 'url' => ['/pricelist/index']]
@@ -71,7 +71,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; RBA Consultancy and General Services <?= date('Y') ?></p>
         <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>

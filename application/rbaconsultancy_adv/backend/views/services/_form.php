@@ -27,7 +27,15 @@ use common\models\ServiceList;
                                 ['prompt'=>'Select User...'])->label('Acquired by') ;
     ?>
 
-    <?= $form->field($model, 'slist_id')->textInput()->label('Service') ?>
+    <?php 
+        $service_name=ServiceList::find()->all();
+
+        $listData=ArrayHelper::map($service_name,'slist_id','slist_name');
+
+        echo $form->field($model, 'slist_id')->dropDownList(
+                                $listData, 
+                                ['prompt'=>'Select Service...'])->label('Service Acquired') ;
+    ?>
 
     <?= $form->field($model, 'service_dateapplied')->textInput()->label('Date Applied') ?>
 

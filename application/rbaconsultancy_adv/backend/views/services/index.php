@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['label' => 'Transaction Code', 'attribute' => 'service_id'],
             ['label' => 'Acquired by', 'attribute' => 'user_id',  'value' => 'user.username'],
-            ['label' => 'Service Name', 'attribute' => 'slist_id',  'value' => 'servicelist.slist_name'],
+            ['label' => 'Service Acquired', 'attribute' => 'slist_id',  'value' => 'servicelist.slist_name'],
             ['label' => 'Date Applied', 'attribute' => 'service_dateapplied'],
             ['label' => 'Status', 'attribute' => 'service_status'],
 
