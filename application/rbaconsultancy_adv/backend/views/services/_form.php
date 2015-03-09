@@ -39,7 +39,9 @@ use common\models\ServiceList;
 
     <?= $form->field($model, 'service_dateapplied')->textInput()->label('Date Applied') ?>
 
-    <?= $form->field($model, 'service_status')->textInput(['maxlength' => 255])->label('Status')  ?>
+    <?= $form->field($model, 'service_status')->dropDownList([
+                'Pending' => 'Pending', 'Ongoing' => 'Ongoing', 'Completed' => 'Completed', 'Cancelled' => 'Cancelled'])
+                ->label('Visa Application Status')  ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
