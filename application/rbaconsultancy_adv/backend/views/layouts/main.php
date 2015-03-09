@@ -45,7 +45,6 @@ AppAsset::register($this);
                         ['label' => 'Services List', 'url' => ['/servicelist/index']],
                         ['label' => 'Services', 'url' => ['/services/index']],
                         ['label' => 'Requirements List', 'url' => ['/requirementslist/index']],
-                        ['label' => 'Requirements Per Service', 'url' => ['/requirementsperservice/index']],
                         ['label' => 'Requirements Per User', 'url' => ['/requirementsperuser/index']],
                         ['label' => 'Price List', 'url' => ['/pricelist/index']]
                     ]],
