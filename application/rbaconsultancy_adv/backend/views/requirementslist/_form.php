@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'rlist_desc')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'rlist_dateadded')->textInput() ?>
+  <!---  <?= $form->field($model, 'rlist_dateadded')->textInput() ?> --->
 
     <?= $form->field($model, 'slist_id')->textInput() ?>
 
