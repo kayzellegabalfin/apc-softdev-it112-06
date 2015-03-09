@@ -14,7 +14,7 @@ use yii\helpers\ArrayHelper;
 
    <!-- <?= $form->field($model, 'slist_id')->textInput() ?> -->
 
-    <?= $form->field($model, 'slist_name')->textarea(['rows' => 6]) ->label('Service Name') ?>
+    <?= $form->field($model, 'slist_name')->textInput(['maxlength' => 255])->label('Service Name') ?>
 
     <?= $form->field($model, 'slist_desc')->textarea(['rows' => 6])->label('Service Description') ?>
 

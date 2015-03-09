@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'plist_id')->textInput() ?>
 
-    <?= $form->field($model, 'plist_name')->textInput(['maxlength' => 50]) ?>
+    <?= $form->field($model, 'plist_name')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'plist_price')->textInput() ?>
 

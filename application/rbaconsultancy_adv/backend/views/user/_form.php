@@ -32,7 +32,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'user_firstname')->textInput(['maxlength' => 25]) ?>
 
-    <?= $form->field($model, 'user_midname')->textInput(['maxlength' => 10]) ?>
+    <?= $form->field($model, 'user_midname')->textInput(['maxlength' => 25]) ?>
+
+    <?= $form->field($model, 'user_mobile')->textInput(['maxlength' => 45]) ?>
+
+    <?= $form->field($model, 'user_telephone')->textInput(['maxlength' => 45]) ?>
 
     <?= $form->field($model, 'user_housenum')->textInput(['maxlength' => 25]) ?>
 

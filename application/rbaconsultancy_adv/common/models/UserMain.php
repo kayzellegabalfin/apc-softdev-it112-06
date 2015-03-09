@@ -19,6 +19,8 @@ use Yii;
  * @property string $user_lastname
  * @property string $user_firstname
  * @property string $user_midname
+ * @property string $user_mobile
+ * @property string $user_telephone
  * @property string $user_housenum
  * @property string $user_street
  * @property string $user_city
@@ -51,15 +53,15 @@ class UserMain extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at', 'user_lastname', 'user_firstname', 'user_country', 'user_postalcode'], 'required'],
+            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at', 'user_lastname', 'user_firstname', 'user_mobile', 'user_city', 'user_country', 'user_postalcode'], 'required'],
             [['status', 'created_at', 'updated_at', 'user_postalcode', 'user_age'], 'integer'],
             [['user_birthdate'], 'safe'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['user_lastname', 'user_firstname', 'user_housenum', 'user_street', 'user_city', 'user_country'], 'string', 'max' => 25],
-            [['user_midname'], 'string', 'max' => 10],
+            [['user_midname'], 'string', 'max' => 25],
             [['user_gender'], 'string', 'max' => 6],
-            [['user_companyname', 'user_companyadd', 'user_companycontact'], 'string', 'max' => 45],
+            [['user_telephone', 'user_mobile', 'user_companyname', 'user_companyadd', 'user_companycontact'], 'string', 'max' => 45],
             [['user_type'], 'string', 'max' => 15]
         ];
     }
@@ -75,25 +77,27 @@ class UserMain extends \yii\db\ActiveRecord
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
-            'email' => 'Email',
+            'email' => 'Email Address',
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'user_lastname' => 'Last Name',
             'user_firstname' => 'First Name',
             'user_midname' => 'Middle Name',
+            'user_mobile' => 'Mobile No.',
+            'user_telephone' => 'Telephone No.',
             'user_housenum' => 'House No.',
             'user_street' => 'Street',
             'user_city' => 'City',
             'user_country' => 'Country',
-            'user_postalcode' => 'Postalcode',
+            'user_postalcode' => 'Postal Code',
             'user_gender' => 'Gender',
             'user_companyname' => 'Company Name',
             'user_companyadd' => 'Company Address',
             'user_companycontact' => 'Company Contact',
             'user_birthdate' => 'Birthdate',
             'user_age' => 'Age',
-            'user_type' => 'Type',
+            'user_type' => 'Account Type',
         ];
     }
 

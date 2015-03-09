@@ -36,8 +36,7 @@ class RequirementsPerUser extends \yii\db\ActiveRecord
             [['rpu_id', 'rps_id', 'user_id'], 'required'],
             [['rpu_id', 'rps_id', 'user_id'], 'integer'],
             [['rpu_datefilesubmitted'], 'safe'],
-            [['rpu_status'], 'string', 'max' => 50],
-            [['rpu_fileuploaded'], 'string', 'max' => 255]
+            [['rpu_status', 'rpu_fileuploaded'], 'string', 'max' => 255]
         ];
     }
 

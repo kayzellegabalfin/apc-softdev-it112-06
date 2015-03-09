@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'rpu_id')->textInput() ?>
 
-    <?= $form->field($model, 'rpu_status')->textInput(['maxlength' => 50]) ?>
+    <?= $form->field($model, 'rpu_status')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'rpu_datefilesubmitted')->textInput() ?>
 

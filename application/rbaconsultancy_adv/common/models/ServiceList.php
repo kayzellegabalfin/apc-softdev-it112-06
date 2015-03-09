@@ -35,7 +35,8 @@ class ServiceList extends \yii\db\ActiveRecord
         return [
             [['slist_id', 'slist_name', 'slist_type'], 'required'],
             [['slist_id'], 'integer'],
-            [['slist_name', 'slist_desc'], 'string'],
+            [['slist_name'], 'string', 'max' => 255],
+            [['slist_desc'], 'string'],
             [['slist_dateadded'], 'safe'],
             [['slist_type'], 'string', 'max' => 45]
         ];

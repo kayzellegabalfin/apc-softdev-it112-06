@@ -35,7 +35,7 @@ class Services extends \yii\db\ActiveRecord
             [['service_id', 'user_id', 'slist_id'], 'required'],
             [['service_id', 'user_id', 'slist_id'], 'integer'],
             [['service_dateapplied'], 'safe'],
-            [['service_status'], 'string', 'max' => 25]
+            [['service_status'], 'string', 'max' => 255]
         ];
     }
 

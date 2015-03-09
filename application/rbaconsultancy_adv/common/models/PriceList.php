@@ -35,7 +35,7 @@ class PriceList extends \yii\db\ActiveRecord
             [['plist_id', 'slist_id'], 'integer'],
             [['plist_price'], 'number'],
             [['plist_dateadded'], 'safe'],
-            [['plist_name'], 'string', 'max' => 50]
+            [['plist_name'], 'string', 'max' => 255]
         ];
     }
 
