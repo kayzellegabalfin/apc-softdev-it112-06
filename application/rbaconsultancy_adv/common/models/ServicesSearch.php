@@ -18,8 +18,8 @@ class ServicesSearch extends Services
     public function rules()
     {
         return [
-            [['service_id', 'user_id', 'slist_id'], 'integer'],
-            [['service_dateapplied', 'service_status'], 'safe'],
+            [['service_id', 'slist_id'], 'integer'],
+            [['user_id', 'service_dateapplied', 'service_status'], 'safe'],
         ];
     }
 
@@ -55,14 +55,17 @@ class ServicesSearch extends Services
             return $dataProvider;
         }
 
+        $query->joinWith('user', 'servicelist');
+
         $query->andFilterWhere([
             'service_id' => $this->service_id,
-            'user_id' => $this->user_id,
-            'slist_id' => $this->slist_id,
+            //'user_id' => $this->user_id,
+            //'slist_id' => $this->slist_id,
             'service_dateapplied' => $this->service_dateapplied,
         ]);
 
-        $query->andFilterWhere(['like', 'service_status', $this->service_status]);
+        $query->andFilterWhere(['like', 'service_status', $this->service_status])
+                ->andFilterWhere(['like', 'user.username', $this->user_id]);
 
         return $dataProvider;
     }

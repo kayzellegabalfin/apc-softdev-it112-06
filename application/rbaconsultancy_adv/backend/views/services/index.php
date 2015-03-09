@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             ['label' => 'Transaction Code', 'attribute' => 'service_id'],
-            ['label' => 'Acquired by', 'attribute' => 'user.username'],
+            ['label' => 'Acquired by', 'attribute' => 'user_id',  'value' => 'user.username'],
             ['label' => 'Service', 'attribute' => 'servicelist.slist_name'],
             ['label' => 'Date Applied', 'attribute' => 'service_dateapplied'],
             ['label' => 'Status', 'attribute' => 'service_status'],
