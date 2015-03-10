@@ -50,7 +50,7 @@ class RequirementsList extends \yii\db\ActiveRecord
             'rlist_name' => 'Rlist Name',
             'rlist_desc' => 'Rlist Desc',
             'rlist_dateadded' => 'Rlist Dateadded',
-            'slist_id' => 'Slist ID',
+            'servicelist.slist_name'=> 'Service',
         ];
     }
 

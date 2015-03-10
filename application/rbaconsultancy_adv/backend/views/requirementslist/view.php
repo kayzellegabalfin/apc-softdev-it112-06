@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'rlist_name',
             'rlist_desc:ntext',
             'rlist_dateadded',
-            'slist_id',
+            'slist.slist_name',
         ],
     ]) ?>
 

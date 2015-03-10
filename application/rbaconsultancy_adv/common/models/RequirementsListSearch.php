@@ -18,8 +18,8 @@ class RequirementsListSearch extends RequirementsList
     public function rules()
     {
         return [
-            [['rlist_id', 'slist_id'], 'integer'],
-            [['rlist_name', 'rlist_desc', 'rlist_dateadded'], 'safe'],
+            [['rlist_id'], 'integer'],
+            [['rlist_name', 'slist_id', 'rlist_desc', 'rlist_dateadded'], 'safe'],
         ];
     }
 
@@ -55,15 +55,17 @@ class RequirementsListSearch extends RequirementsList
             return $dataProvider;
         }
 
+		$query->joinWith('slist');
+		
         $query->andFilterWhere([
             'rlist_id' => $this->rlist_id,
             'rlist_dateadded' => $this->rlist_dateadded,
-            'slist_id' => $this->slist_id,
+          //  'slist_id' => $this->slist_id,
         ]);
 
         $query->andFilterWhere(['like', 'rlist_name', $this->rlist_name])
-            ->andFilterWhere(['like', 'rlist_desc', $this->rlist_desc]);
-
+            ->andFilterWhere(['like', 'rlist_desc', $this->rlist_desc])
+			->andFilterWhere(['like', 'slist.slist_name', $this->slist_id]);
         return $dataProvider;
     }
 }

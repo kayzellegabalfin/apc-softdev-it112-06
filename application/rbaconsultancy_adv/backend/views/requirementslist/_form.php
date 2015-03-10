@@ -20,9 +20,7 @@ use common\models\ServiceList;
 
   <!---  <?= $form->field($model, 'rlist_dateadded')->textInput()->label('Date Added') ?> --->
 
-   <!--- <?= $form->field($model, 'slist_id')->textInput()->label('Service Name') ?> --->
-	
-	<?php
+  	<?php
 	        $ServiceList=ServiceList::find()->all();
 	
 	        $listData=ArrayHelper::map($ServiceList,'slist_id','slist_name');
