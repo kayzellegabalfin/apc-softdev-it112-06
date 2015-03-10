@@ -46,11 +46,11 @@ class RequirementsList extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'rlist_id' => 'Rlist ID',
-            'rlist_name' => 'Rlist Name',
-            'rlist_desc' => 'Rlist Desc',
-            'rlist_dateadded' => 'Rlist Dateadded',
-            'servicelist.slist_name'=> 'Service',
+            'rlist_id' => 'Requirements ID',
+            'rlist_name' => 'Requirement Name',
+            'rlist_desc' => 'Requirements Description',
+            'rlist_dateadded' => 'Date Added',
+            'servicelist.slist_name'=> 'Service Name',
         ];
     }
 
