@@ -20,7 +20,7 @@ use common\models\ServiceList;
 
     <?= $form->field($model, 'plist_price')->textInput() ?>
 
-    <?= $form->field($model, 'plist_dateadded')->textInput() ?>
+   <!--- <?= $form->field($model, 'plist_dateadded')->textInput()  --->
 
     <?php
 	        $ServiceList=ServiceList::find()->all();
