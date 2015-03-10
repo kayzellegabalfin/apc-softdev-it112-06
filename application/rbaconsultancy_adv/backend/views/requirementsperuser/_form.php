@@ -34,7 +34,15 @@ use common\models\ServiceList;
                                 ['prompt'=>'Select User...'])->label('Acquired by') ;
     ?>
 	
-	
+	    <?php 
+        $rlist_name=RequirementsList::find()->all();
+
+        $listData=ArrayHelper::map($rlist_name,'rlist_id','rlist_name');
+
+        echo $form->field($model, 'rlist_id')->dropDownList(
+                                $listData, 
+                                ['prompt'=>'Select Requirement...'])->label('Submitted Requirement') ;
+    ?>
 	
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
