@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2015 at 04:06 PM
--- Server version: 5.5.16
+-- Generation Time: Mar 10, 2015 at 10:02 AM
+-- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -58,6 +58,47 @@ CREATE TABLE IF NOT EXISTS `requirements_list` (
   `rlist_dateadded` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `slist_id` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+-- --------------------------------------------------------
+-- Dumping data for table `requirements_list`
+-- --------------------------------------------------------
+
+INSERT INTO `requirements_list` (`rlist_id`, `rlist_name`, `rlist_desc`, `rlist_dateadded`, `slist_id`) VALUES
+(5, 'Request Letter for Special Work Permit', 'Letter request from the petitioner-company with an undertaking to withhold and remit BIR taxes due on all income of the applicant and with a statement that all documents submitted were legally obtained from the corresponding government agencies.', '2015-03-09 16:50:35', 8),
+(6, 'Request Letter for Visa Extension of Pre-arranged Employee-Commercial', 'Letter request from the Petitioner, with a statement that all documents submitted were legally obtained from the corresponding government agencies.', '2015-03-10 03:33:55', 5),
+(7, 'Request Letter for Temporary Resident Visa', 'Letter request from the Petitioner (alien permanent resident)', '2015-03-10 03:35:14', 3),
+(8, 'Request Letter for Conversion to Pre-arranged Employee-Commercial', 'Letter request from the Petitioner with a statement that all documents submitted were legally obtained from the corresponding government agencies.', '2015-03-10 05:39:22', 6),
+(9, 'Request Letter for Conversion to Non-Quota Immigrant by Marriage', 'Letter request from the Petitioner with a statement that all documents submitted were legally obtained from the corresponding government agencies.', '2015-03-10 05:40:22', 4),
+(10, 'Request Letter for Conversion to Quota Immigrant', 'Letter request stating that the applicant:\r\n(a.) Is in possession of a valid passport (or equivalent document) and visa the time he flies his application;\r\n(b.) does not belong to any class of excludible or deportable foreign nationals;\r\n(c.) possesses the qualification, skills, scientific. educational or technical knowledge which will advance and be beneficial to the national interest of the Philippines or has sufficient capital nor a viable and sustainable investment in the Philippines; and\r\n(d.) all of the documents submitted were legally obtained from the corresponding government agencies.', '2015-03-10 05:46:05', 7),
+(11, 'CGAF for Special Work Permit', 'Consolidated General Application Form duly accomplished and notarized', '2015-03-10 05:49:27', 8),
+(12, 'CGAF for Visa Extension of Pre-arranged Employee-Commercial', 'Consolidated General Application Form duly accomplished and notarized.', '2015-03-10 05:50:24', 5),
+(13, 'CGAF for Temporary Resident Visa', 'Consolidated General Application Form duly accomplished and notarized', '2015-03-10 05:51:14', 3),
+(14, 'CGAF for Conversion to Pre-arranged Employee-Commercial', 'Consolidated General Application Form duly accomplished and notarized', '2015-03-10 05:52:02', 6),
+(15, 'CGAF for Conversion to Non-Quota Immigrant by Marriage', 'Consolidated General Application Form duly accomplished and notarized', '2015-03-10 05:52:57', 4),
+(16, 'CGAF for Conversion to Quota Immigrant', 'Consolidated General Application Form duly accomplished and notarized', '2015-03-10 05:53:35', 7),
+(17, 'Passport for Special Work Permit', 'Photocopy of applicant''s passport showing bio-page and authorized stay of at least 20 days.', '2015-03-10 06:00:28', 8),
+(18, 'SEC Registration for Special Work Permit', 'Photocopy of SEC Registration, By Laws, Articles of Incorporation of the company.', '2015-03-10 06:02:08', 8),
+(19, 'Employment Contract for Special Work Permit', 'Photocopy of Employment Contract specifying the exact compensation to be earned by the applicant.', '2015-03-10 06:03:26', 8),
+(20, 'BI Clearance for Special Work Permit', 'Original copy of Bureau of Immigration Clearance Certificate', '2015-03-10 06:04:48', 8),
+(21, 'Birth Certificate for Conversion to Non-Quota Immigrant by Marriage', 'Original copy of NSO issued Birth Certificate of the Filipino Spouse.', '2015-03-10 06:06:40', 4),
+(22, 'Marriage Contract for Conversion to Non-Quota Immigrant by Marriage', 'Original copy of NSO issued Marriage Contract or if the marriage was solemnized abroad, the Original copy of Marriage Contract authenticated by the Philippines Embassy with the English translation if it is written in other foreign language.', '2015-03-10 06:09:01', 4),
+(23, 'Passport for Conversion to Non-Quota Immigrant by Marriage', 'Photocopy of applicant''s Passport with bio-page, admission and authorized stay of at least 20 days.', '2015-03-10 06:10:03', 4),
+(24, 'BI Clearance for Conversion to Non-Quota Immigrant by Marriage', 'Original copy of Bureau of Immigration Clearance Certificate.', '2015-03-10 06:10:36', 4),
+(25, 'Joint Affidavit for Conversion to Non-Quota Immigrant by Marriage', 'Joint Affidavit of applicant and petitioner attesting to the authenticity and genuineness of all documents submitted in support of the application', '2015-03-10 06:11:53', 4),
+(26, 'Proof of Financial Capacity for Conversion to Non-Quota Immigrant by Marriage', 'Proof of financial capacity of applicant and/or petitioner during their permanent residence in the Philippines.', '2015-03-10 06:12:50', 4),
+(27, 'Photocopy of Passport, ACR, ASIO  for Temporary Resident Visa', 'Photocopies of the following:\r\nPhotocopy of the Applicant''s passport with valid entry visa and admission intro the country and updated stay;\r\nPassport Page of the Petitioner showing the permanent visa stamped on it;\r\nACR I-Card (front and back portion) of the Petitioner;\r\nOrder granting Permanent Resident Visa to the Petitioner;\r\nASIO Certification/ATAP/accomplished and complete application form of ASIO holder stamped "RECEIVED" by the BI, if applicable.', '2015-03-10 08:45:41', 3),
+(28, 'Marriage Certificate or Birth Certificate or Family Register for Temporary Resident Visa', 'Original copy of Marriage Certificate or Birth Certificate or Family Register.', '2015-03-10 08:47:16', 3),
+(29, 'BI Clearance of Applicant for Temporary Resident Visa', 'Original Copy of Bureau of Immigration Clearance Certificate of the Applicant', '2015-03-10 08:48:23', 3),
+(30, 'BI Clearance of Petitioner for Temporary Resident Visa', 'Original Copy of Bureau of Immigration Clearance Certificate of the Petitioner', '2015-03-10 08:49:34', 3),
+(31, 'Joint Affidavit for Temporary Resident Visa', 'Joint Affidavit (applicant and petitioner) stating therein the authenticity and genuineness of all documents submitted in support of petition', '2015-03-10 08:50:50', 3),
+(32, 'Proof of Financial Capacity for Temporary Resident Visa', 'Proof of Financial Capacity to support applicant and petitioner during their stay in the Philippines', '2015-03-10 08:51:42', 3),
+(33, 'Passport for Conversion to Quota Immigrant', 'Photocopy of Applicant''s Passport showing the its bio-page, admission and authorized stay.', '2015-03-10 08:54:36', 7),
+(34, 'BI Stamp for Conversion to Quota Immigrant', 'Original copy of stamp issued by the Bureau of Quarantine and appearing in applicant''s passport or travel document, and a certification from a government health institution that applicant is physically and mentally fit.', '2015-03-10 08:56:17', 7),
+(35, 'NICA Clearance for Conversion to Quota Immigrant', 'Original copy of National Intelligence Coordinating Agency Clearance', '2015-03-10 08:57:10', 7),
+(36, 'LEA Clearance for Conversion to Quota Immigrant', 'Original Copy of Clearance form from the Law Enforcement Agency of the Applicant''s country of origin, provided, that this requirements may be waived if the applicant has stayed in the Philippines for more than 2 years.', '2015-03-10 08:58:34', 7),
+(37, 'NBI Clearance', 'Original copy of National Bureau of Investigation Clearance', '2015-03-10 08:59:05', 7),
+(38, 'Proof of Applicant''s Special Qualification for Conversion to Quota Immigrant', 'Proof of Applicant''s Special Qualification like academic degrees, awards, certificate of recognition and other documents attesting to applicant''s special qualification, skills or knowledge, or proof of financial capacity or investment', '2015-03-10 09:01:10', 7);
 
 -- --------------------------------------------------------
 
