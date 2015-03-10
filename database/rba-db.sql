@@ -112,7 +112,7 @@ INSERT INTO `service_list` (`slist_id`, `slist_name`, `slist_desc`, `slist_type`
 (5, 'Visa Extension of Pre-arranged Employee-Commercial', '', 'Non Immigrant Visa', '2015-03-09 15:04:08'),
 (6, 'Conversion to Pre-arranged Employee-Commercial', '', 'Non Immigrant Visa', '2015-03-09 15:04:58'),
 (7, 'Conversion to Quota Immigrant', '', 'Immigrant Visa', '2015-03-09 15:05:33'),
-(8, 'Special Permit', '', 'Non Immigrant Visa', '2015-03-09 15:05:59');
+(8, 'Special Work Permit', '', 'Non Immigrant Visa', '2015-03-09 15:05:59');
 
 -- --------------------------------------------------------
 
