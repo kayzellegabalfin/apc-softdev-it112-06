@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'RBA Consultancy and General Services';
 ?>
 <div class="site-index">
 
