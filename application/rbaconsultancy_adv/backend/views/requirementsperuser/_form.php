@@ -16,11 +16,11 @@ use common\models\ServiceList;
 
     <?php $form = ActiveForm::begin(); ?>
 	
-   <?= $form->field($model, 'rpu_id')->textInput() ?>
+<!---   <?= $form->field($model, 'rpu_id')->textInput() ?> --->
 
     <?= $form->field($model, 'rpu_status')->textInput(['maxlength' => 255])->label('Requirement Status') ?>
 
-   <?= $form->field($model, 'rpu_datefilesubmitted')->textInput()->label('Requirement File Submitted') ?>
+<!---   <?= $form->field($model, 'rpu_datefilesubmitted')->textInput()->label('Requirement File Submitted') ?> --->
 
     <?= $form->field($model, 'rpu_fileuploaded')->textInput(['maxlength' => 255])->label('Requirement File Uploaded') ?>
 
