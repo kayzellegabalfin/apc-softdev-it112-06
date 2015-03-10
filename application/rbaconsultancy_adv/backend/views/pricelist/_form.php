@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use common\models\ServiceList;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Pricelist */
@@ -20,7 +22,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'plist_dateadded')->textInput() ?>
 
-    <?= $form->field($model, 'slist_id')->textInput() ?>
+    <?php
+	        $ServiceList=ServiceList::find()->all();
+	
+	        $listData=ArrayHelper::map($ServiceList,'slist_id','slist_name');
+	
+	        echo $form->field($model, 'slist_id')->dropDownList(
+	                                $listData,
+	                                ['prompt'=>'Select Service...'])->label('Service Name') ;
+	    ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
