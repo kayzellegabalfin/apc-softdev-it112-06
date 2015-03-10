@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Pricelist */
 
 $this->title = $model->plist_id;
-$this->params['breadcrumbs'][] = ['label' => 'Pricelists', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Price List', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pricelist-view">
@@ -29,10 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
            // 'plist_id',
-            'plist_name',
-            'plist_price',
-            'plist_dateadded',
-            'slist_id',
+           ['label' => 'Price Name', 'attribute' => 'plist_name'],
+		   ['label' => 'Cost of Service', 'attribute' => 'plist_price'],
+		   ['label' => 'Date Added', 'attribute' => 'plist_dateadded'],
+		   ['label' => 'Service Name', 'attribute' => 'slist_id'],
+            
         ],
     ]) ?>
 

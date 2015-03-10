@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Pricelist */
 
-$this->title = 'Create Pricelist';
-$this->params['breadcrumbs'][] = ['label' => 'Pricelists', 'url' => ['index']];
+$this->title = 'Create Price List';
+$this->params['breadcrumbs'][] = ['label' => 'Price List', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pricelist-create">

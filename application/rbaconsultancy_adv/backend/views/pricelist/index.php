@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\PricelistSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Pricelists';
+$this->title = 'Price List';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pricelist-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Pricelist', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Price List', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -26,11 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
            // 'plist_id',
-            'plist_name',
-            'plist_price',
-            'plist_dateadded',
-            'slist_id',
-
+		   ['label' => 'Price Name', 'attribute' => 'plist_name'],
+		   ['label' => 'Cost of Service', 'attribute' => 'plist_price'],
+		   ['label' => 'Date Added', 'attribute' => 'plist_dateadded'],
+		   ['label' => 'Service Name', 'attribute' => 'slist_id'],
+            
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
