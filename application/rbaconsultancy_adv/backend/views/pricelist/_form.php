@@ -14,7 +14,7 @@ use common\models\ServiceList;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'plist_id')->textInput() ?>
+   <!--- <?= $form->field($model, 'plist_id')->textInput() ?> --->
 
     <?= $form->field($model, 'plist_name')->textInput(['maxlength' => 255]) ?>
 
