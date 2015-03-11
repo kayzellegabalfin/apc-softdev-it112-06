@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use common\models\RequirementsList;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\RequirementsPerUser */
@@ -30,9 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             //'rpu_id',
 			['attribute' => 'rpu_status', 'label' => 'Requirement Status'],
-			['attribute' => 'rpu_datefilesubmitted', 'label' => 'Requirement File Submitted'],
+			['attribute' => 'rpu_datefilesubmitted', 'label' => 'Date File Submitted'],
 			['attribute' => 'rpu_fileuploaded', 'label' => 'Requirement File Uploaded'],
-            'rlist_id',
+            'requirementsList.rlist_name',
             'user_id',
         ],
     ]) ?>
