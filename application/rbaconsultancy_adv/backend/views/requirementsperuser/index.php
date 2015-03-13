@@ -25,13 +25,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'rpu_id',
+            //'rpu_id',
+            'rlist_id', //requirement name
+            'user_id', //submitted by
+            'service_id', //service name
+            'rpu_datefilesubmitted', //date
+            'rpu_fileuploaded', //uploaded files, if applicable
             'rpu_status',
-            'rpu_datefilesubmitted',
-            'rpu_fileuploaded',
-            'rlist_id',
-            // 'user_id',
-            // 'service_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -18,7 +18,7 @@ use common\models\ServiceList;
 
     <?= $form->field($model, 'rlist_desc')->textarea(['rows' => 6])->label('Requirement Description') ?>
 
-  <!---  <?= $form->field($model, 'rlist_dateadded')->textInput()->label('Date Added') ?> --->
+  <!---  <?= $form->field($model, 'rlist_dateadded')->textInput()->label('Date Added') ?> -->
 
   	<?php
 	        $ServiceList=ServiceList::find()->all();
