@@ -13,9 +13,11 @@ use Yii;
  * @property string $rpu_fileuploaded
  * @property integer $rlist_id
  * @property integer $user_id
+ * @property integer $service_id
  *
  * @property User $user
- * @property RequirementsList $RequirementsList
+ * @property RequirementsList $rlist
+ * @property Services $service
  */
 class RequirementsPerUser extends \yii\db\ActiveRecord
 {
@@ -33,9 +35,9 @@ class RequirementsPerUser extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['rpu_status', 'rlist_id', 'user_id'], 'required'],
+            [['rpu_status', 'rlist_id', 'user_id', 'service_id'], 'required'],
             [['rpu_datefilesubmitted'], 'safe'],
-            [['rlist_id', 'user_id'], 'integer'],
+            [['rlist_id', 'user_id', 'service_id'], 'integer'],
             [['rpu_status', 'rpu_fileuploaded'], 'string', 'max' => 255]
         ];
     }
@@ -52,6 +54,7 @@ class RequirementsPerUser extends \yii\db\ActiveRecord
             'rpu_fileuploaded' => 'Rpu Fileuploaded',
             'rlist_id' => 'Rlist ID',
             'user_id' => 'User ID',
+            'service_id' => 'Service ID',
         ];
     }
 
@@ -66,8 +69,16 @@ class RequirementsPerUser extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRequirementsList()
+    public function getRlist()
     {
         return $this->hasOne(RequirementsList::className(), ['rlist_id' => 'rlist_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getService()
+    {
+        return $this->hasOne(Services::className(), ['service_id' => 'service_id']);
     }
 }
