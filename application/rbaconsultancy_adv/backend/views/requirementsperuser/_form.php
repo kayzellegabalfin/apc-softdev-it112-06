@@ -50,11 +50,13 @@ $connection = \Yii::$app->db;
                                     ['prompt'=>'Select Requirement...']);
     ?>
 
-    <?= $form->field($model, 'rpu_fileuploaded')->textInput(['maxlength' => 255]) ?>
+    <?= $form->field($model, 'rpu_fileuploaded')->textInput(['placeholder'=>'Do not fillout if not applicable', 'maxlength' => 255]) ?>
 
     <?= $form->field($model, 'rpu_datefilesubmitted')->textInput() ?>
 
-    <?= $form->field($model, 'rpu_status')->textInput(['maxlength' => 255]) ?>
+    <?php echo $form->field($model, 'rpu_status')->dropDownList(['Not Yet Submitted' => 'Not Yet Submitted', 'Submitted' => 'Submitted']); ?>
+
+
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
